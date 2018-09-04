@@ -1,0 +1,887 @@
+\documentclass[a4paper,12pt,openany,oneside,utf-8]{cctbook}
+%\usepackage{hyperref}
+%\hypersetup{CJKbookmarks=true}
+\usepackage{amssymb,amsmath}
+\usepackage{subfigure}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[amsmath,thmmarks]{ntheorem}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{titletoc}%自己添加,
+\usepackage{epsfig,picins,picinpar}
+\usepackage{setspace}
+%\usepackage[top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm]{geometry}
+\usepackage{geometry}
+\geometry{left=3.3cm,right=2.8cm,top=2.5cm,bottom=2.2cm,}
+\usepackage{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%new
+\usepackage[super,square,comma,sort&compress]{natbib}
+\usepackage{multirow}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage{ccmap}
+\usepackage{url}
+\usepackage[justification=centering]{caption}
+\bibliographystyle{gbt7714-2005}%{elsarticle-num}%{elsarticle-num}%{plain}%{elsarticle-num-names}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand\sectionname{\arabic{section}}
+%\renewcommand\sectionformat{\centering}
+%\renewcommand\subsectionname{\arabic{section}.\arabic{subsection}}
+%\renewcommand\subsectionformat{}
+%\renewcommand\subsubsectionname{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+%\renewcommand\subsubsectionformat{}
+
+\allowdisplaybreaks[4]
+\renewcommand{\baselinestretch}{1.5}
+%\renewcommand{\chaptername}{{Chapter\thechapter}}
+\renewcommand{\chaptername}{第{\thechapter}章}
+\renewcommand\bibname{参考文献}
+\renewcommand\contentsname{目录}
+\renewcommand{\sectionname}{{\thechapter}.\arabic{section}}
+
+% 字体大小设置
+\newcommand{\chuhao}{\fontsize{48pt}{\baselineskip}\selectfont}
+\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
+\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoyihao}{\fontsize{25pt}{\baselineskip}\selectfont}
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoerhao}{\fontsize{17pt}{\baselineskip}\selectfont}
+\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{13pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}%\newcommand\kaishu{\CJKfamily{kai}}
+%这样在文档中就可以随心所欲地改变字体了, 比如上图中开始部分就是用
+% {\yihao 1770年}{\sanhao 法国人狄道} 来实现的
+
+%%%%%%%旧
+%\newcommand{\argmin}[1]{\underset{#1}{\mathrm{argmin}}}
+%\newcommand{\bx}{{\bf x}}
+%\newcommand{\bz}{{\bf z}}
+%\newcommand{\bb}{{\bf b}}
+%\newcommand{\Z}{{\mathbb Z}}
+%\newcommand{\C}{{\mathbb C}}
+%\newcommand{\N}{{\mathbb N}}
+%\newcommand{\R}{{\mathbb R}}
+%\newcommand{\T}{{\mathbb T}}
+%\newcommand{\E}{{\mathbb E}}
+%\newcommand{\A}{{\mathcal A}}
+%\newcommand{\D}{{\mathcal D}}
+%\newcommand{\J}{{\mathcal J}}
+%\renewcommand{\P}{{\mathbb P}}
+%\newcommand{\RR}{{\mathfrak R}}
+%%%%%%
+%\setlength{\textwidth}{14.5cm} \setlength{\textheight}{21.0 cm}
+%\setlength{\evensidemargin}{1.0 cm} \setlength{\oddsidemargin}{1.0cm}
+%\setlength{\topmargin}{0.1 cm}
+\pagestyle{fancy}%
+%\renewcommand{\headrulewidth}{0pt}       %把页眉线的宽度设为零，即去掉页眉线
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0\baselineskip}
+\addtolength{\headwidth}{0\marginparsep}
+\addtolength{\headwidth}{0\marginparwidth}
+\setlength{\headsep}{5mm}%
+%\renewcommand{\chaptermark}[1]{\markboth{\ #1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\ #1}{}}
+\fancyhf{}
+
+\begin{document}
+\theoremstyle{plain} \theoremseparator{}
+\theoremindent0cm\theoremnumbering{arabic} \theoremsymbol{}% 以上是latex 的默认设置
+
+%\vskip 26pt
+%\renewcommand\refname{\Large\bf References}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\fancypagestyle{plain}{%
+\fancyhead{} % clear all header fields
+\fancyhead[CE,CO]{\xiaowuhao{浙江工商大学硕士学位论文}}}
+\begin{titlepage}
+\fancypagestyle{plain}{\pagestyle{fancy}}
+\fancyhead[C]{\xiaowuhao 浙江工商大学硕士学位论文}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 完整
+\vskip 4mm
+\xiaowuhao 密级：公开 \hspace{9cm}中图分类号：O212.1
+
+\vskip 6mm
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=140mm,height=22mm]{zjgsu.jpg}
+\end{figure}
+
+\vskip 10mm
+
+\begin{spacing}{1.0}
+\begin{center}
+\chuhao\textbf{硕士学位论文}
+\end{center}
+
+\vskip 20mm
+\begin{center}
+\hspace{0.01mm}\sanhao\textbf{论文题目：}
+\vskip 5mm
+\textbf{\underline{对不确定数据建模的改进贝叶斯随机向量泛函网络}}
+\end{center}
+\end{spacing}
+\vspace{24mm}
+
+
+\begin{center}
+\textbf{\kaishu\sanhao 作者姓名：\underline{\quad \quad \quad \ 黎利娟 \  \ \quad \quad \quad \quad}}
+\end{center}
+
+
+\begin{center}
+\textbf{\kaishu\sanhao 学科专业：\underline{\quad \quad \quad 统计学 \quad \quad \quad \quad}}
+\end{center}
+
+
+\begin{center}
+\textbf{\kaishu\sanhao 研究方向：\underline{\quad \quad \ \ 机器学习 \ \quad \quad\quad}}
+\end{center}
+
+\begin{center}
+\textbf{\kaishu\sanhao 指导教师：\underline{\quad \quad \quad  董雪梅 \quad \quad \quad \quad  }}
+\end{center}
+
+\
+
+\
+
+\
+
+
+\begin{center}
+\kaishu\sanhao 提交日期：2018 年10 月
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 完整的封面
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 匿名的封面
+%\
+%
+%\
+%
+%\
+%
+%\
+%
+%\begin{center}
+%\chuhao{浙~江~省~硕~士~学~位~论~文}
+%\end{center}
+%\vskip 10mm
+%
+%\
+%
+%\
+%
+%\
+%
+%\
+%
+%
+%\begin{spacing}{1.1}
+%\noindent\xiaoerhao\textbf{论文题目: 随机多尺度核学习及应用\\}
+%\end{spacing}
+%\begin{spacing}{1.34}
+%\noindent\xiaoerhao\textbf{授予学位学科专业: 统计学\\}
+%\noindent\xiaoerhao\textbf{学科专业代码: 071400\\}
+%\noindent\xiaoerhao\textbf{研究方向: 机器学习\\}
+%\noindent\xiaoerhao\textbf{省编号: 8S1672}
+%\end{spacing}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 匿名
+
+\end{titlepage}
+
+
+\frontmatter
+\pagenumbering{Roman}
+\cfoot{\thepage}
+\newpage
+\begin{center}
+\heiti\sanhao{对不确定数据建模的改进贝叶斯随机向量泛函网络}
+\end{center}
+\vskip 10 mm
+\begin{center}
+\heiti\sanhao{摘\quad 要}
+\end{center}
+\vskip 7 mm
+\begin{spacing}{1.8}
+{\sihao 本文提出了一个针对不确定数据建模，结合随机向量泛函网络的完全贝叶斯模型，即~IB-RVFL。和已有的工作相比，我们在基函数的参数上也定义了先验分布。通过在训练过程中引入额外的先验知识，不仅模型的学习能力得到提高，而且针对基本的~RVFL~模型中对随机参数确定问题的困难性和重要性，提供了一个有效的解决方案。变分推断方法被用来快速地得到一个复杂后验分布的近似，这有助于完成超参数的自动推断，并且得到预测结果的概率估计。通过在九个回归数据集上进行实验，说明了该算法的良好性能。}
+\end{spacing}
+\vskip 16 mm
+\noindent {\sihao 关键词: 贝叶斯推断；随机向量泛函网络；变分推断}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                                                                                       %
+\newpage                                                                                               %
+\begin{spacing}{1.1}
+\begin{center}
+\heiti\xiaosanhao{Improved Bayesian Random Vector Functional-Link Networks For Uncertain Data Modelling}
+\end{center}
+\end{spacing}
+\vskip 14mm
+\begin{center}
+\heiti\xiaosanhao{ABSTRACT}
+\end{center}
+\vskip 7mm
+
+This paper presents an improved algorithm, named IB-RVFL, which is a complete Bayesian framework combined with the Random Vector Functional-Link (RVFL) networks for uncertain data modeling. In comparison to the existing work, we address the use of prior distributions on the parameters of basis functions. This additional information helps to enhance the learning power of the model and provides an effective solution for the difficult and significant setting problem of random parameters in existing RVFL-based modelling techniques. A Variational Inference (VI) method is used to obtain an approximation of the intractable posterior distribution, which helps to realize automatic inference of the hyper-parameters and gives a probability estimate for the test data. Simulation results on nine data sets show that the proposed method performs favourably.
+
+
+
+
+
+\vskip 14 mm
+\noindent{KEYWORDS: Bayesian inference (BI), Random Vector Functional-Link (RVFL), Variational Inference (VI).}
+                                                                                                      %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\begin{spacing}{1.8}
+\tableofcontents
+\titlecontents{chapter}[0pt]{\addvspace{2pt}\filright}
+{\contentspush{\thecontentslabel\ }}
+{}{\titlerule*[8pt]{.}\contentspage}
+\end{spacing}
+
+
+
+
+
+\mainmatter
+\fancyfoot[EC,OC]{\hspace*{1 em}\thepage{}\hspace*{1 em}}
+\normalsize
+\fancypagestyle{plain}{\pagestyle{fancy}}
+\chapter[引言]{引言}\fancyhead[C]{\xiaowuhao 浙江工商大学硕士学位论文}
+\section{研究背景与研究意义}
+\subsection{研究背景}
+在实际应用中，由于样本数据一般是从多个数据源随机抽取的，我们得到的数据样本可能不仅是大规模的，也具有复杂结构，甚至可能包含噪音或极端值。我们不仅需要算法简单快速，能应对大规模的数据集，也需要算法具有强大的能力，能够准确地抓住数据内部的复杂结构，这就需要算法的结构具有一定的灵活性，同时我们还希望算法具有很好的泛化能力，对噪音数据或极端值具有不敏感性。随机向量泛函网络~(RVFL)~\cite{Pao1992Functional}是一个针对复杂数据建模的简单却强大的学习框架，可以看做是随机方法和单隐层前馈神经网络的结合，即通过随机抽样的方法选取内部基函数~(即神经网络中的隐藏层)~的权重参数和偏置项，使得输入层和输出层直接相连，将线性的模型结构和非线性的基函数相结合。这样做的好处是模型不仅具有简单高效的特点，因为模型可以直接用线性代数的方法进行求解，同时非线性基函数的存在也使得模型具有抓住数据内部复杂结构的能力。RVFL~算法选取的是一个固定的抽样分布，而一旦抽样分布的选择不合适将会极大地影响模型的性能，故更具鲁棒性的数据建模技术更具有实际意义。
+
+贝叶斯方法将不确定性引入模型中，并且将先验知识和观测数据结合，在机器学习领域备受欢迎。贝叶斯方法提供了一种计算假设概率的方法，这种方法是基于假设的先验概率、给定假设下观察到不同数据的概率以及观察到的数据本身而得出的。其方法为，将关于未知参数的先验信息与样本信息综合，再根据贝叶斯定理，得出后验信息，然后根据后验信息去推断未知参数的方法。基于贝叶斯理论针对鲁棒性数据建模的算法相应而生。本文提出的算法便是结合~RVFL~和贝叶斯理论的一个例子。贝叶斯方法有许多优点，特别是在建模过程中对各个层次的不确定性的统一处理。这种形式也允许先验知识与从观测数据中获得的知识的无缝结合。然而，优雅的形式背后往往有一个相当大的计算成本——由观测数据合并而来的后验分布必须被表示和更新，这通常涉及到高维积分。这些计算成本使得即使在简单的模型中，如广义线性模型，也会让人质疑贝叶斯方法的可行性。为了解决这个问题，我们采用针对贝叶斯方法的变分推断技术\cite{Tommi2000Bayesian, Blei2016Variational}。 变分推断方法通过寻找分布族中最接近后验分布的成员，使目标函数的求解变成了一个优化问题。变分推断在许多应用中比经典的抽样方法诸如~MCMC~更快。变分推断的思想是首先假定一个密度函数族，然后找到接近目标分布的位于族中的成员。通过~Kullback-Leibler~散度衡量相近程度。变分推断方法被用来快速地得到复杂后验分布的近似，完成超参数的自动推断，并且得到预测结果的概率估计。
+\subsection{研究意义}
+本文提出了一个针对不确定数据建模，结合随机向量泛函网络的完全贝叶斯模型，即~IB-RVFL。和已有的工作相比，我们在基函数的参数上也定义了先验分布。通过在训练过程中引入额外的先验知识，不仅模型的学习能力得到提高，而且针对基本的~RVFL~模型中对随机参数确定问题的困难性和重要性，提供了一个有效的解决方案。变分推断方法被用来快速地得到一个复杂后验分布的近似，这有助于完成超参数的自动推断，并且得到预测结果的概率估计。这项工作的主要技术贡献包括以下几方面：通过在迭代过程中对这些分布的均值和方差进行微调，我们得到了一个鲁棒的模型，对不同的数据集提供不同的学习能力，在现有基于~RVFL~的建模技术中，解决了基函数随机参数的设置难题。而且，IB-RVFL~模型进一步挖掘了~B-RVFL~\cite{Scardapane2017Bayesian}模型的学习能力，充分发挥了贝叶斯的全部潜能。
+
+在实际应用中，由于从多个数据源中随机抽取的样本数据可能包含噪音或极端值，导致模型的泛化性能变差，具有鲁棒性的数据建模技术在统计学和机器学习应用中受到了广泛关注。本文提出的模型通过在模型参数上增加相应的先验分布，使得模型在不同数据集上能够自动进行微调，使模型更具鲁棒性，同时我们将模型在不同的真实数据集上进行训练，都得到了较好的效果，证明了模型具有通用的能力。
+\section{文献综述}
+随机向量泛函网络~(RVFL)~是一个针对不确定数据建模的简单却强大的学习框架\cite{Wang2016Editorial,Scardapane2017Randomness}。RVFL~将输入变量通过一组随机的基函数映射到高维空间，基函数中随机参数的值在训练期间是固定不变的，由此将非线性学习问题变成一个线性建模任务，而对于线性学习，我们有很多方法便于求解，可以使用~$\ell_{2}$~正则项和平方损失函数，得到简单的闭合解。同时，RVFL~模型是一个通用的函数近似器，即它能以概率~$1$~近似任意复杂度的连续函数。
+
+Pao~和~Takefuji~\cite{Pao1992Functional}首次提出了函数链接型网络，首先定义一组基函数，将输入特征从~$d$~维空间映射到一维空间，然后可以对不同基函数施加不同的权重，得到最终预测结果。他们进一步发展了泛函网络的随机向量版本，基函数的参数是随机的从一个固定的分布中抽取，模型只需学习权重参数，从而极大地降低了计算复杂度，使得模型像线性模型一样易于求解，却可以学习非线性的函数关系。Igelnik~ 和~Pao~\cite{Igelnik1995Stochastic}证明了带随机参数的~RVFL~模型是一个通用的函数近似器，即它能以概率一近似任意复杂度的连续函数，但是他们并没有确定此概率分布的明确方法。通过对位于输入层和隐藏层之间的权重参数进行随机赋值，随机向量版本的泛函网络是一个对连续函数具有通用性的近似器，并且它具有快速的学习能力。Zhang~和~Suganthan~\cite{Zhang2016A} 用大量实验对随机向量泛函网络做了一个全面的评估。该篇文章在~$121$~个~UCI~分类数据集上对~RVFL~算法进行了测试，发现输出层中的偏置项对模型没有显著的影响，而线性化的网络结构，激活函数的类型，随机参数的分布以及最终权重参数的优化方法都决定了模型的性能。基于闭式解的岭回归比摩尔-彭若斯广义逆更好。相比于对所有数据集都固定使用的均匀随机区间~$[-1,+1]$，分别对每一个数据集微调均匀随机区间的范围，将会使模型达到更好的效果。RVFL~可以看做是随机版本的单隐层前馈神经网络，随机方法在大规模数据建模中相对传统方法效率更高，且被证明是有效的
+\cite{Mahoney2011Randomized,Motwani1995Randomized,Zenil2011Randomness}。 对来自不同应用领域的大规模数据集，Mahoney~\cite{Mahoney2011Randomized}利用随机方法进行了研究。随机方法最显而易见的好处是，即使在最坏的情况下，算法也非常快速，同时还具备许多其它的优点。比如随机化的使用使算法结构更简单清晰，在研究者去探寻模型内部的关系和结构时，也更容易分析和推理。它使得算法的输出更具有解释性，同时也可以应用正则化方法得到更鲁棒的模型。随机化方法的使用一般包括随机抽样和随机投影，在~RVFL~模型中，我们对基函数内部的权重参数和偏置项进行了随机抽样。Gorban~等\cite{Ivan2015}指出在~RVFL~模型中，如果随机参数的选取不合适，对目标函数的近似效果将会非常不好。Li~和~Wang~\cite{liwang2017}验证了随机参数的取值区间的设定对模型拟合性能的显著影响。同时在实际应用中，随机向量泛函网络对大规模复杂数据集也有不错的表现。Ren~等\cite{Ren2016Random}利用~RVFL~对短期用电需求进行了预测。短期用电需求预测在能源市场中扮演着重要的角色，有益于电力调度，机组组合，燃料分配等等。相比于基于两阶段神经网络的有限冲击响应~(FIR)~模型，RVFL~有更高的准确性和更快的学习速度。Lu~等\cite{LU201496}提出了针对人脸识别的带随机权重的前馈神经网络算法，人脸识别在模式识别和计算机视觉中总是一个热门的话题，通常，图象或者说特征经常都被转化为向量形式进行学习。但是图象矩阵向量化可能会导致图象中相关信息的失真。这篇文章设计了一个带随机权重的二维神经网络的分类器，它使用图象矩阵作为输入，并能够同时保留图象矩阵的结构。特别地，这个分类器使用左右投影向量来替换在隐藏层中通用的高维输入权重来保持图象元素之间的相关性，并且采用基于随机权重的神经网络的思想学习所有参数。这其实也是随机向量泛函网络的一种应用。在通用人脸数据集上的实验表明该算法能包含面部图像的结构化特征，并且得到不错的结果。Scardapane~等\cite{Scardapane2015Distributed}研究了~RVFL~的分布式学习算法，其中训练数据分布在分散化的信息结构下。对于分布式学习，目标是建立一个公用的学习模型来训练所有的局部数据集，从而优化系统性能。在这项工作中，给定输入层的初始权重，局部~RVFL~网络的输出权重仅通过相邻节点之间的通道共享，局部数据集被严格的封装。该算法在五个分支数据集上进行评估。结果显示对随机向量泛函网络使用基于分散性的平均一致性~DAC~ 算法在准确性，学习速度和计算复杂度上都表现优异。
+
+在实际应用中，由于从多个数据源中随机抽取的样本数据可能包含噪音或极端值，导致模型的泛化性能变差，具有鲁棒性的数据建模技术在统计学和机器学习应用中受到了广泛关注\cite{Hampel2011,wang2017,Wangli2017}。贝叶斯方法\cite{Bishop2011,Murphy2012,Hill1992Bayesian,article,Theodoridis2015Machine} 将不确定性引入模型中，并且使先验知识和观测数据得以结合，在机器学习领域备受欢迎。贝叶斯方法历史悠久，它起源于~$18$~ 世纪英国学者贝叶斯~(Bayes)~发表的文章“论有关机遇问题的求解”，在此论文中他提出著名的贝叶斯公式和一种归纳推理方法，随后拉普拉斯~(Laplace)~等人用贝叶斯提出的方法导出一些有意义的结果。但是贝叶斯方法的实际应用在很长时间内都被执行完整的贝叶斯步骤的困难性所限制，尤其是需要在整个参数空间求和或者求积分，这在做预测或者比较不同的模型时必须进行。取样方法的发展，例如马尔科夫链蒙特卡洛，以及计算机速度和存储容量的巨大提升，打开了在相当多的问题上使用贝叶斯技术的大门。蒙特卡洛方法非常灵活，可以应用于许多种类的模型。然而，它们在计算上很复杂，主要应用于小规模问题。许多更加高效的方法被提出，如变分推断和期望传播。这些提供了一种可选的补充的取样方法，让贝叶斯方法能够应用于大规模的应用中。贝叶斯统计与经典统计学的主要差别在于是否利用先验信息。在使用样本信息上也是有差异的。贝叶斯学派重视已出现的样本观察值，而对尚未发生的样本观察值不予考虑，贝叶斯学派很重视先验信息的收集、挖掘和加工，使它数量化，形成先验分布，参加到统计推断中来，以提高统计推断的质量。忽视先验信息的利用，有时是一种浪费，有时还会导致不合理的结论。贝叶斯学派的最基本的观点是：任一个未知量~$\theta$~都可看作一个随机变量，应该用一个概率分布去描述对~$\theta$~的未知状况。这个概率分布是在抽样前就有的关于~$\theta$~的先验信息的概率陈述。这个概率分布被称为先验分布，简称先验。任一未知量都有其不确定性，在表达不确定性程度时，概率与概率分布是最好的形式。针对贝叶斯方法的一种广泛的批评就是先验概率的选择通常是为了计算的方便而不是为了反映出任何先验的知识。一些人甚至把贝叶斯观点中结论对于先验选择的依赖性的本质看成困难的来源。减少对于先验的依赖性是所谓无信息先验的一个研究动机。然而，这会导致比较不同模型时的困难，并且实际上当先验选择不好的时候，贝叶斯方法有很大的可能性会给出错误的结果。频率学家估计方法在一定程度上避免了这一问题，并且例如交叉验证的技术在模型比较方面也很有用。
+
+Scardapane~等\cite{Scardapane2017Bayesian}基于贝叶斯理论提出了针对鲁棒性数据建模的贝叶斯随机向量泛函网络~(B-RVFL)，通过在~RVFL~模型中的权重上定义先验分布，得到一个概率模型，而不是根据给定的规则寻找一个单点估计器。通过在五个回归数据集上试验，该算法表现都很好。然而，基函数中参数的设置仍然是从固定的分布中随机抽取，如果分布设置不合理，将会极大地影响算法的性能，并且对于不同的数据，基函数的参数都从一个固定的，相同的分布中抽取，这是不合理的。从贝叶斯的角度来说，这些基函数的参数也是随机变量，应该对于不同的数据可以服从不同的分布，这是数据结合合适的先验知识，从模型中自动训练出来的。贝叶斯方法有许多优点，特别是在建模过程中对各个层次的不确定性的统一处理。这种形式也允许先验知识与从观测数据中获得的知识的无缝结合。然而，优雅的形式背后往往有一个相当大的计算成本——由观测数据合并而来的后验分布必须被表示和更新，这通常涉及到高维积分。这些计算成本使得即使在简单的模型中，如广义线性模型，也会让人质疑贝叶斯方法的可行性。
+
+在这篇论文中，我们提出一个改进的贝叶斯随机向量泛函网络模型~(IB-RVFL)，我们在基函数的参数上也定义了先验分布，这里我们选择典型的高斯分布。这项工作的主要技术贡献包括以下几方面：通过在迭代过程中对这些分布的均值和方差进行微调，我们得到了一个鲁棒的模型，对不同的数据集提供不同的学习能力，在现有基于~RVFL~的建模技术中，为基函数随机参数的设置难点提供了一个有效的解决方案。而且，IB-RVFL~ 模型进一步挖掘了~B-RVFL~模型的学习能力，充分发挥了贝叶斯的全部潜能。
+
+然而，在~IB-RVFL~模型中，相应的计算复杂度也增加了\cite{Scardapane2017Bayesian}。在贝叶斯概率模型中，一个中心任务是在给定观测数据变量~$\mathbf{X}$~ 的条件下，计算潜在变量~$\boldsymbol{z}$~的后验概率分布~$p(\boldsymbol{z}|\mathbf{X})$，以及计算关于这个概率分布的期望。然而对于实际应用中的许多模型来说，计算后验概率分布或者计算关于这个后验概率分布的期望是不可行的。这可能是由于潜在空间的维度太高，以至于无法直接计算，或者由于后验概率分布的形式特别复杂，从而期望无法解析地计算。在连续变量的情形中，需要求解的积分可能没有解析解，而空间的维度和被基函数的复杂度可能使得数值积分变得不可行。对于离散变量，求边缘概率的过程涉及到对隐含变量的所有可能的配置进行求和。这个过程虽然原则上总是可以计算的，但是我们在实际应用中发现，隐含状态的数量有指数多个，从而精确的计算代价过高。为了解决这个问题，我们采用针对贝叶斯方法的变分推断技术\cite{Tommi2000Bayesian, Blei2016Variational}。 变分推断方法通过寻找分布族中最接近后验分布的成员，使目标函数的求解变成了一个优化问题。变分推断在许多应用中比经典的抽样方法诸如~MCMC~更快。变分推断的思想是首先假定一个密度函数族，然后找到接近目标分布的位于族中的成员。通过~Kullback-Leibler~(K-L)~散度衡量相近程度。K-L~散度是描述两个概率分布差异的一种方法。它是非对称的。在信息论中，它表示当用概率分布拟合真实分布时产生的信息损耗。
+
+变分的方法起源于18世纪的欧拉、拉格朗日，以及其他的关于变分法的研究。标准的微积分关注的是寻找函数的导数。我们可以将函数想象为一个映射，这个映射以一个变量的值作为输入，返回函数值作为输出。函数的导数描述了当输入变量有一个无限小的变化时，输出值如何变化。类似地，我们可以将泛函作为一个映射，它以一个函数作为输入，返回泛函的值作为输出。引入泛函的导数的概念，它表达了输入函数产生无穷小的改变时，泛函的值得变化情况。变分法的规则与标准的微积分规则很相似。许多问题可以表示为最优化问题，其中最需要优化的量是一个泛函。研究所有可能的输入函数，找到最大化或者最小化泛函的函数就是问题的解。变分方法有很广泛的实用性，包括有限元方法和最大熵方法。虽然变分方法本质上没有任何近似的东西，但是它们通常会被用于寻找近似解。寻找近似解的过程可以这样完成：限制需要最优化算法搜索的函数的范围，例如只考虑二次函数，或者考虑由固定的基函数线性组合而成的函数，其中只有线性组合的系数可以发生变化。在概率推断中，限制条件的形式可以是可分解的假设。变分推断的核心思想，就是从某一函数空间中寻找形式简单，且满足某些条件或约束的分布函数，去近似形式复杂、不易计算的函数分布，以简化积分运算。比如，可以在所有高斯分布当中，选一个和目标分布最相似的分布，以便后面做进一步计算时容易获得解析解。此外，还可以假设多元分布的各变量之间独立，这样高维积分则变成多个一元积分的乘积，从而解决高维问题。
+
+Jaakkola~和~Jordan~\cite{Tommi1996A}在~1996~年首次提出针对贝叶斯逻辑回归模型及其扩展的变分方法。变分方法可以近似逻辑回归中的后验分布，使之得到有效的更新。这篇文章通过对模型变量定义高斯先验分布构建一个贝叶斯逻辑回归模型，证明了一个精确的变分变换可以用来得到参数的后验分布的一个闭合形式的近似，从而产生一个近似的后验预测模型。这种方法很容易扩展到完全观测的二元图模型。对于不完全观测的图形模型，利用一个额外的变分变换，可以得到关于后验分布的闭合形式近似解。最后，这篇文章证明了回归问题的对偶形式给出了一个隐变量密度模型，其中的变分公式可以精确地解决~EM~更新问题。变分方法被广泛应用于近似后验推断。然而，它们的使用通常仅限于具有共轭性质的分布族。在许多概率模型中，平均场变分方法被广泛应用于近似后验推断。在一个典型的应用中，平均场方法用坐标上升优化算法近似计算后验，当模型师条件共轭时，坐标上升算法很容易推断出封闭形式的解。然而，许多感兴趣的模型诸如相关主题模型和贝叶斯逻辑回归模型都是不共轭的。在这些模型中，平均场方法不能直接应用。针对这一问题，Wang~和~Blei~\cite{Wang2013Variational} 提出了非共轭分布的变分推断算法，即拉普拉斯变分推断和~delta~方法变分推断，它们扩展并统一了一些已有的针对特定模型的算法。拉普拉斯变分推断方法将拉普拉斯近似嵌入到变分优化算法中。delta~方法变分推断优化了变分目标的泰勒近似。对一大类非共轭模型，这两个模型都能很容易地衍生出变分算法，并且在实际数据集上表现很好。变分方法是有效的，并且被广泛使用。这些方法通常找到后验的一个单峰近似，特别是当变分方法选择平均场近似时。当后验分布是多峰时，这样的近似是不可行的。Gershman~等\cite{Samuel2012Nonparametric}提出非参变分推断算法。受到非参核密度估计的启发，在非参变分推断算法中，这些核的位置和它们的带宽被视为变分参数，并通过提高数据边际似然函数的近似下界实现优化。与其他大部分变分近似不同，使用多核对有多峰后验分布近似效果更好。文章用层次逻辑回归模型和非线性矩阵分解模型证明了非参数逼近的有效性。Ranganath~等\cite{Ranganath2015Hierarchical}发展了层级变分模型~(HVMs)，通过把变分分布族作为潜在变量，对模型进行分层扩展。正如层级贝叶斯模型包含了数据之间的依赖关系一样，层级变分模型也会在潜在变量之间建立依赖关系。HVMs~在先验参数上增加了一个变分近似，这使得它对离散和连续的潜在变量都能捕获复杂结构。Hoffman~和~Blei~\cite{Hoffman2013Stochastic,Hoffman2014Structured}提出随机变分推断算法，使用随机优化使得在大数据集上的对后验分布的变分推断成为可能。随机优化算法使用目标梯度的噪声估计进行迭代更新，这比传统的变分推理有效的多。通过在潜在狄利克雷分布和层级狄利克雷过程主题模型上实验，随机变分推断可以有效地分析复杂概率模型下的海量数据集。Kucukelbir~等\cite{Kucukelbir2016Automatic} 建立了自动微分变分推断算法~(ADVI)，只需给定概率模型和数据集，ADVI~能自动得到一个有效的变分推断算法。而且~ADVI~不需要满足分布的共轭性假设。ADVI~允许我们定义任何可微分的概率模型。这个自动推断过程主要通过三个步骤完成。首先，对潜在变量~$\boldsymbol{z}$~进行坐标变换，将潜在变量的坐标空间转化到实坐标空间，即使潜在变量的取值范围为整个实数空间。其次，使用蒙特卡洛积分计算模型的证据下界~(ELBO)，然后，采用随机梯度上升最大化证据下界~ELBO，并使用自动微分计算梯度。通过自动微分变分推断算法，贝叶斯方法可以很容易和~RVFL~模型结合。
+
+本文提出了一个针对不确定数据建模，结合随机向量泛函网络的完全贝叶斯模型，即~IB-RVFL。和已有的工作相比，我们在基函数的参数上也定义了先验分布，得到一个完全的贝叶斯概率模型。通过在训练过程中引入额外的先验知识，提高了模型的学习能力，也解决了~RVFL~模型中随机参数确定困难的问题。同时对贝叶斯推断中后验概率难以求解的问题，采用变分推断方法来快速地得到一个复杂后验分布的近似，完成超参数的自动推断，使模型简单易用而且高效。
+\section{本文的创新点}
+这篇论文提出了一个针对不确定数据建模，结合随机向量泛函网络的完全贝叶斯模型，即~IB-RVFL。和已有的工作~B-RVFL~相比，我们在基函数的参数上也定义了先验分布。通过在训练过程中引入额外的先验知识，不仅模型的学习能力得到提高，而且针对基本的~RVFL~模型中对随机参数确定问题的困难性和重要性，提供了一个有效的解决方案。变分推断方法被用来快速地得到一个复杂后验分布的近似，这有助于完成超参数的自动推断，并且得到预测结果的概率估计。这项工作的主要技术贡献包括以下几方面：通过在迭代过程中对这些分布的均值和方差进行微调，我们得到了一个鲁棒的模型，对不同的数据集提供不同的学习能力，在现有基于~RVFL~的建模技术中，解决了基函数随机参数的设置难题。而且，IB-RVFL~模型进一步挖掘了~B-RVFL~模型的学习能力，充分发挥了贝叶斯的全部潜能。通过在九个真实的回归数据集上进行实验，并用三个统计指标~(均方误差~MSE、决定系数~$R^{2}$、解释方差~$E_{var}$)~与几种典型算法~(RVFL、B-RVFL、RSCN、SVM、Random-Forest)~进行对比，验证了模型的良好性能。
+
+\section{基本框架}
+本文共分为三章，主要内容在第二章，按照先理论介绍后算法实验的结构来进行介绍：
+
+第一章为引言部分，首先说明了本文研究的由来及其意义。然后对相关研究进行了梳理，介绍了相关研究的进展，优缺点等，从随机向量泛函网络~(RVFL)，再应用贝叶斯方法结合~RVFL~模型的贝叶斯随机向量泛函网络~(B-RVFL)，还有变分推断~(VI)~方法的介绍。神经网络具有强大的学习能力，但非线性的结构使它的求解较为复杂，且容易陷入局部最优。RVFL~将随机方法应用到神经网络中，使非线性的结构变为线性的，模型仍然具有强大的学习能力，但却有更简单的求解方法。而~B-RVFL~ 将贝叶斯方法引入到~RVFL~模型中，使预测结果可以得到概率输出，同时先验知识的引入也增强了模型的学习能力，使模型更加鲁棒。但贝叶斯概率模型的一大缺点就是后验分布的积分往往难以求解，故引入变分推断方法，将复杂的积分求解问题转变为优化问题，简化模型的求解。最后介绍了本文研究与已有的研究相比，拥有的创新点。
+
+第二章主要介绍本文提出的模型——对不确定数据建模的改进贝叶斯随机向量泛函网络~(IB-RVFL)，首先是相关概念的介绍，其次是本文提出的模型~IB-RVFL，IB-RVFL~和已有的工作相比，在基函数的参数上也定义了先验分布，得到一个完全的贝叶斯概率模型。通过在训练过程中引入额外的先验知识，提高了模型的学习能力，也解决了~RVFL~模型中随机参数确定困难的问题。同时对贝叶斯推断中后验概率难以求解的问题，采用变分推断方法来快速地得到一个复杂后验分布的近似，完成超参数的自动推断，使模型简单易用而且高效。然后在实验部分介绍了相关数据，参数设置与评价方法，实验报告等。最后对这一章的内容进行了总结。
+
+第三章为总结与展望，总括本文的主要内容， 对未来的工作进行一定的安排。
+\chapter[对不确定数据建模的改进贝叶斯随机向量泛函网络~(IB-RVFL)~]{对不确定数据建模的改进贝叶斯随机向量泛函网络~(IB-RVFL)~}
+\section{预备知识}
+机器学习的方法有监督学习、非监督学习和强化学习等，其中监督学习又可应用到分类问题与回归问题\cite{lihang2012,Hastie2009The}。 本文主要讨论有监督的回归问题。
+
+监督学习的任务是学习一个模型，使模型能够对任意给定的输入，对其相应的输出做出一个好的预测。在监督学习中，将输入与输出所有可能取值的集合分别称为输入空间与输出空间。每个具体的输入是一个实例，通常由特征向量表示。这时，所有特征向量存在的空间称为特征空间。特征空间的每一维对应于一个特征。本文假设输入空间与特征空间为相同的空间，对它们不予区分。在监督学习过程中，将输入与输出看作是定义在输入~(特征)~空间与输出空间上的随机变量的取值。输出为数值型变量，则为回归问题，输出为类别型变量，则为分类问题。本文讨论的输出均为数值型变量。
+
+在本文中，向量表示为粗体小写字母，例如~$\mathbf{x}$，而矩阵表示通过粗体大写字母，例如~$\mathbf{X}$，假设所有向量都为列向量。符号~$\mathbf{x}_{i}$~ 表示矩阵~$\mathbf{X}$~的第~$i$~个向量，$x_{ij}$~则表示矩阵~$\mathbf{X}$~的~(i,j)~项。运算符~$\|\cdot\|_{p}$~表示欧式空间上的~$\ell_{p}$~范数。$\mathbf{X}$~为输入变量，$\mathbf{t}$~为输出变量，$N$~为样本个数，$d$~为特征维度。
+\subsection{神经网络}
+以监督学习为例，假设我们有训练样本集，
+\[\mathcal{D}=\{(\mathbf{x}_{i},t_{i})|i=1,\ldots,N\},\]
+那么神经网络算法能够提供一种复杂且线性的假设模型~$\mathcal{H}_{\boldsymbol{\omega}}(\mathbf{X})$，它具有参数~$\boldsymbol{\omega}$，可以以此参数来拟合我们的数据。为了了解神经网络，我们从神经网络的发展历史讲起。
+
+第一个神经元模型\cite{McCulloch1943}是神经生理学家~Warren-McCulloch~和数学家~Walter-Pitts~通过推测神经元的内部结构，建立的一个基于电路的原始神经网络模型，即~MCP~神经模型，
+\begin{equation*}
+t_{i}=\left\{
+\begin{array}{ll}
+1&\textrm{$\boldsymbol{w}\mathbf{x}_{i}\ge\theta$ 且 ~$z_{i}=0,\forall i$，}\\
+0&\textrm{其它。}
+\end{array}\right.
+\end{equation*}
+这是一个简单的线性步长函数。$\mathbf{t}$~是输出变量，$\mathbf{X}$~是输入变量，$\boldsymbol{w}$~为相应的权重，$\boldsymbol{z}$~为抑制性输入变量，$\theta$~为阀值。该函数的设计使得一旦抑制性输入变量不为~0，则会完全阻止神经元的激活。MCP~神经模型和现代的感知机很相似，不过也有一些不同之处：MCP~ 神经网络是建立在电路的基础上；MCP~神经模型中的权重~$\omega_{i}$~是固定的，而现代感知机中的权重是自适应的；即使在今天看来，抑制性输入变量的想法也是非常规的\cite{Wang2017On}。
+
+随着~MCP~神经模型的成功，Frank-Rosenblatt~\cite{Rosenblatt1958}进一步引入感知机模型。在现代机器学习领域中，典型的感知机模型如图~(\ref{fig:11})~所示，
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{w1.png}
+    \caption{感知机模型. }\label{fig:11}
+\end{figure}
+
+\noindent 感知单元收集数据，关联单元以不同的权重线性地添加这些数据，并将非线性变换应用于阈值和，然后将结果传递给响应单元。早期神经元模型和现代感知机之间的一个区别是引入非线性激活函数~(我们使用~sigmoid~函数作为图中的示例)。这源于线性阀值函数应该被光滑化以模拟生物神经网络的论点~(Bose et al., 1996)~\cite{Bose1996Neural}以及考虑用连续函数替换阶梯函数的计算可行性~(Mitchell et al., 1997)~\cite{Cnaan1997Using}。感知机基本上是输入信号的线性函数，因此，它仅限于表示像~NOT，AND，OR~这样的逻辑运算的线性决策边界，而无法表示更复杂的决策边界，如~XOR\cite{Minsky1969Perceptrons}。
+
+从感知器到基本神经网络的步骤只是将感知器放在一起。通过将感知器并排放置，我们得到一个单层神经网络，并通过将一个单层神经网络堆叠在另一个上，我们得到一个多层神经网络，通常称为多层感知器~(MLP)~\cite{Anderson2000,Kawaguchi2000A}。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{network.pdf}
+    \caption{单隐层前馈神经网络模型. }\label{fig:12}
+\end{figure}
+
+图~(\ref{fig:12})~是一个单隐层的前馈神经网络模型，代表从输入到输出都是向前传播的，最左边的一层叫做输入层，最右的一层叫做输出层，中间所有节点组成的一层叫做隐藏层，因为我们不能在训练样本集中观察到它们的值。上图神经网络可以表示为
+\begin{equation*}
+t=\sum_{j=1}^{N}\beta_{j}\phi(\boldsymbol{\omega_{j}^{T}}\mathbf{x})，
+\end{equation*}
+$\mathbf{t}$~是输出变量，$\mathbf{X}$~是输入变量，$\boldsymbol{\omega}$~被称为神经网络的内权参数，$\boldsymbol{\beta}$~为外权参数，$\phi$~表示神经网络的激活函数。神经网络模型通过引入非线性的激活函数来提升自身的拟合效果，激活函数选择的合理性直接决定了神经网络拟合性能，最常选用的是~Sigmoid~函数，
+\begin{equation*}
+\phi(x)=\frac1{1+e^{-x}}，
+\end{equation*}
+神经网络的一个显著特性，通常称为通用逼近特性，粗略地描述了~MLP~可以表示任意函数。这里我们从三个不同的方面讨论了这个属性：
+\begin{itemize}
+\item 布尔近似：具有一个隐藏层的MLP可以表示任何布尔函数。
+\item 连续近似：具有一个隐藏层的MLP可以任意精度逼近任何有界连续函数。
+\item 任意近似：具有两个隐藏层的MLP可以任意精度逼近任何函数。
+\end{itemize}
+反向传播~(BP)~算法被用来求解神经网络模型的参数。与标准的梯度下降算法~(计算误差更新所有参数)~相比，反向传播~(BP)~算法首先将输出层的误差项传播回需要更新参数的层，然后使用标准梯度下降来更新该层参数。直观地说，反向传播~(BP)~的推导是通过链式规则计算梯度~(Werbos, 1990; Mitchell et al., 1997; LeCun et al., 2015)~\cite{Werbos1990,Mitchell1997,Yann2015Deep}。反向传播~(BP)~是一种局部搜索的优化算法，训练时模型可能会陷入局部极值，导致泛化效果不理想；另一方面，由于优化的目标函数通常较为复杂，当部分神经元的输出接近~0~或者~1~时~(采用~Sigmoid~函数)，权值误差改变量很小，训练过程将会十分缓慢。
+\subsection{随机向量泛函网络~(RVFL)~}
+对于非线性学习问题，我们可以使用神经网络，但神经网络的最优解往往是局部最优，而且训练过程较为复杂，对于图~(\ref{fig:2})~中的神经网络，试想若隐藏层的权重参数由系统随机给定，且在训练过程中保持不变，则将简化网络结构，将非线性的网络结构变为线性的，这就得到随机向量泛函网络~(RVFL)~的雏形。随机向量函数型链接网络是解决复杂数据建模的强大工具\cite{Pao1992Functional,PAO1994163}。RVFL~ 将输入变量通过一组随机的基函数映射到高维空间，基函数中随机参数的值在训练期间是固定不变的，由此将非线性学习问题变成一个线性建模任务，而对于线性学习，我们可以使用~$\ell_{2}$~正则项和平方损失函数，得到简单的闭合解。
+
+考虑一个回归问题的数据集，
+\[\mathcal{D}=\{(\mathbf{x}_{i},t_{i})|i=1,\ldots,N\},\]
+其中输入变量~$\mathbf{x}_{i}\in \mathbf{X}\subset \mathbb{R}^{d}$，输出变量~$t_{i}\in T=[-M, M]$ 且$M>0$，我们需要对它们建立一个合适的回归模型，
+\begin{equation*}
+\bar{t}=\mathbb{E}_{t|\mathbf{x}}[t], \qquad \mathbf{x}\in \mathbf{X},
+\end{equation*}
+假设数据集~$\mathcal{D}$~是独立同分布的。
+\begin{equation}\label{eq:1}
+\mathit{f}(\mathbf{x})=\sum_{i=1}^{m}\beta_{i}G(\mathbf{A}_{i}^T\mathbf{x}+b_i)=\boldsymbol{\beta}^T\mathrm{G}(\mathbf{x}),
+\end{equation}
+其中~$\mathrm{G}(\mathbf{x}):=\mathrm{G}(\mathbf{x};\mathbf{A},\mathbf{b}):=(G(\mathbf{A}_{1}^T\mathbf{x}+b_1),\cdots,G(\mathbf{A}_{m}^T\mathbf{x}+b_m))^T$, $\mathbf{A}:=(\mathbf{A}_1,\cdots,\mathbf{A}_m)$~ 这里~$(\mathbf{A}_{i}^T\mathbf{x}+b_{i})$~表示输入向量~$\mathbf{x}$~进行的线性变换，$m$~表示隐藏节点的数目。基函数中的权重项~$\{\mathbf{A}_{i}\in \mathbb{R}^d\}$~及偏置项~$\{b_{i}\in \mathbb{R}\}$~ 是从~$[-\lambda,+\lambda]$~的均匀分布中随机且独立抽取的，其中~$\lambda$~只取正值。非线性的基函数选择~Sigmoid~函数，
+\begin{equation}\label{eq:2}
+G(x)=\frac{1}{1+e^{-x}}, \qquad x\in \mathbb{R}.
+\end{equation}
+对于这类优化问题，通常我们选择平方损失函数。原始的~RVFL~模型是没有正则项的，但这里我们为了与下文的~B-RVFL~模型做对比，故添加~$\ell_{2}$~正则项，此时~RVFL~学习可以看做一个岭回归问题。故~$\boldsymbol{\beta}$~的最优解为，
+\begin{equation*}
+\boldsymbol{\beta^{\ast}}=\mathop{\arg\min}_{\boldsymbol{\beta}\in\mathbb{R}^{m}}\Big\{\frac{1}{2}\|\boldsymbol{\beta}^T\mathbf{G}-\mathbf{t}\|_{2}^{2}+\frac{C}{2}\|\boldsymbol{\beta}\|_{2}^{2}\Big\}.
+\end{equation*}
+$C$~是正则化参数，在训练精度和模型复杂度之间做权衡，正则化参数可以由交叉验证~(CV)~确定。$\mathbf{G}$~为随机的基函数，$\mathbf{G}:=\Big(\mathrm{G}(\mathbf{x}_1),\cdots,\mathrm{G}(\mathbf{x}_N)\Big)$，$\mathbf{t}$~为输出变量，$\mathbf{t}:=(t_1,\cdots,t_N)$，进一步给出~$\boldsymbol{\beta}$~的闭合解，
+\begin{equation}\label{eq:3}
+\boldsymbol{\beta^{\ast}}=(\mathbf{G}^{T}\mathbf{G}+C\mathbf{I})^{-1}\mathbf{G}^{T}\mathbf{t}.
+\end{equation}
+给定输入变量~$\mathbf{x}$，由~\eqref{eq:3}~计算~$\boldsymbol{\beta}^{\ast}$~的点估计值，\eqref{eq:1}~得到输出变量的估计值~$\mathbf{t}^{\ast}$。
+
+和神经网络类似，RVFL~\cite{Igelnik1995Stochastic}是一个通用的函数近似器，即它能以概率~$1$~近似任意复杂度的连续函数，并且它具有快速的学习能力。RVFL~ 可以看做是随机版本的单隐层前馈神经网络，随机方法在大规模数据建模中相对传统方法效率更高，且被证明是有效的\cite{Mahoney2011Randomized,Motwani1995Randomized,Zenil2011Randomness}。 随机方法最显而易见的好处是，即使在最坏的情况下，算法也非常快速，同时还具备许多其它的优点。比如随机化的使用使算法结构更简单清晰，在研究者去探寻模型内部的关系和结构时，也更容易分析和推理。它使得算法的输出更具有解释性，同时也可以应用正则化方法得到更鲁棒的模型。随机化方法的使用一般包括随机抽样和随机投影，在~RVFL~模型中，我们对基函数内部的权重参数和偏置项进行了随机抽样。利用随机方法使~RVFL~具有和神经网络一样进行非线性建模的能力且简单的结构使求解更迅速，但同时也带来了一些问题。Gorban~等\cite{Ivan2015}指出在~RVFL~模型中，如果随机参数的选取不合适，对目标函数的近似效果将会非常不好。Li~和~Wang~\cite{liwang2017}验证了随机参数的取值区间的设定对模型拟合性能有显著影响，相比于对所有数据集都固定使用的随机区间，分别对每一个数据集微调随机区间的范围，将会使模型达到更好的效果。
+
+\subsection{贝叶斯分析方法}
+贝叶斯分析方法\cite{Gelman1996Bayesian}是贝叶斯学习的基础，它提供了一种计算假设概率的方法，这种方法是基于假设的先验概率、给定假设下观察到不同数据的概率以及观察到的数据本身而得出的。其方法为，将关于未知参数的先验信息与样本信息综合，再根据贝叶斯定理，得出后验信息，然后根据后验信息去推断未知参数的方法。贝叶斯定理公式化表示如下，
+\begin{equation*}
+p(\boldsymbol{\beta}|\mathcal{D})=\frac{p(\mathcal{D}|\boldsymbol{\beta})p(\boldsymbol{\beta})}{p(\mathcal{D})}.
+\end{equation*}
+设~$\boldsymbol{\beta}$~是总体分布~$p(\mathcal{D},\boldsymbol{\beta})$~中的参数，为了估计该参数，可从该总体随机抽取一个样本~$\mathbf{x}_{i}=(x_{1},\dots,x_{d})$~(d为特征数目)，同时依据~$\boldsymbol{\beta}$~的先验信息选择一个先验分布~$p(\boldsymbol{\beta})$，在用贝叶斯公式算得后验分布~$p(\boldsymbol{\beta}|\mathcal{D})$，这时，作为~$\boldsymbol{\beta}$~的估计可选用后验分布~$p(\boldsymbol{\beta}|\mathcal{D})$~的某个位置特征值，如后验分布的众数、中位数或期望值\cite{maosisong2012,Rasmussen2005Gaussian}。贝叶斯定理右侧的量~$p(\mathcal{D}|\boldsymbol{\beta})$~由观测数据估计，可以看成是参数向量~$\boldsymbol{\beta}$~的函数，被称为似然函数。它表达了在不同的参数向量~$\boldsymbol{\beta}$~下，观测数据出现的可能性的大小。
+
+在贝叶斯观点和频率学家观点中，似然函数~$p(\mathcal{D}|\boldsymbol{\beta})$~都起着重要的作用。然而，在两种观点中，使用的方式有着本质的不同。在频率学家观点中，$\boldsymbol{\beta})$~被认为是一个固定的参数，它的值由某种形式的估计确定，这个估计的误差通过考察可能的数据集~$\mathcal{D}$~ 的概率分布得到。相反，从贝叶斯的观点来看，只有一个数据集~$\mathcal{D}$~(即实际观测到的数据集)。参数的不确定性通过~$\boldsymbol{\beta}$~的概率分布来表达。
+
+对~RVFL~模型中的参数~$\boldsymbol{\beta}$~定义先验分布~$p(\boldsymbol{\beta})$，替代正则项。假设输出变量是不确定的，定义概率分布~$p(t|\mathbf{x},\boldsymbol{\beta})$，则似然函数，
+\begin{equation*}
+p(\mathbf{t}|\mathbf{X},\boldsymbol{\beta})=\prod_{i=1}^{N}p(t_{i}|\mathbf{x}_{i},\boldsymbol{\beta}).
+\end{equation*}
+贝叶斯定理允许我们结合先验和似然函数来重估计权重~$\boldsymbol{\beta}$~的后验分布，
+\begin{equation*}
+p(\boldsymbol{\beta}|\mathbf{X},\mathbf{t})=\frac{1}{Z}p(\mathbf{t}|\mathbf{X},\boldsymbol{\beta})p(\boldsymbol{\beta}),
+\end{equation*}
+这里~$Z$~表示归一化常量，独立于参数~$\boldsymbol{\beta}$。$Z$~ 也被称为边际似然，在实际应用中，边际似然往往难以求解，但可知，
+\begin{equation*}
+p(\boldsymbol{\beta}|\mathbf{X},\mathbf{t})\propto p(\mathbf{t}|\mathbf{X},\boldsymbol{\beta})p(\boldsymbol{\beta}).
+\end{equation*}
+给定一个新的输入~$\mathbf{x}$，预测分布可通过下式求得，
+\begin{equation*}
+p(t|\mathbf{X},\mathbf{t},\mathbf{x})=\int p(t|\mathbf{x}, \boldsymbol{\beta})p(\boldsymbol{\beta}|\mathbf{t},\mathbf{X})d\boldsymbol{\beta},
+\end{equation*}
+有时上式的积分难以求解，这里我们需要提及一个重要概念——~MAP~估计~(最大后验估计)，即用~$\boldsymbol{\beta}$~后验分布的众数代替后验分布。忽略归一化常量~$Z$~的值，最大化~$\boldsymbol{\beta}$~ 的后验分布，
+\begin{equation*}
+\boldsymbol{\beta}_{MAP}=\mathop{\arg\max}_{\boldsymbol{\beta}}\{p(\mathbf{t}|\mathbf{X},\boldsymbol{\beta})p(\boldsymbol{\beta})\}.
+\end{equation*}
+即使真实的后验分布是不可积的，最大化上式仍然是一个标准的优化过程，MAP~估计值也可作为进一步优化的初始值。
+
+贝叶斯方法有许多优点，特别是在建模过程中对各个层次的不确定性的统一处理。这种形式也允许先验知识与从观测数据中获得的知识的无缝结合。然而，优雅的形式背后往往有一个相当大的计算成本——由观测数据合并而来的后验分布必须被表示和更新，这通常涉及到高维积分。这些计算成本使得即使在简单的模型中，如广义线性模型，也会让人质疑贝叶斯方法的可行性。
+\subsection{贝叶斯随机向量泛函网络~(B-RVFL)~}
+RVFL~模型只能得到单点输出，即对输出只能得到一个固定的预测值，而且易于受到极端值和噪音项的影响。B-RVFL~将贝叶斯分析方法应用在~RVFL~模型上，即对权重参数~$\boldsymbol{w}$~和输出变量~$\mathbf{t}$~ 引入先验分布，得到一个概率模型。通过将先验知识与观测数据相结合，使模型更加鲁棒，并且能够得到概率形式的输出。
+
+将贝叶斯理论应用在公式~\eqref{eq:1}~中，假设观测变量受到均值为~0，方差为~$\sigma^{2}$~的高斯白噪声的干扰，
+\begin{equation}\label{eq:4}
+p(t_i|\mathbf{x}_i,\boldsymbol{\beta},\sigma^{2})=\mathcal{N}(t_i|\boldsymbol{\beta^{T}}\mathrm{G}(\mathbf{x}_i),\sigma^{2}),
+\end{equation}
+且
+\begin{equation}\label{eq:04}
+p(\mathbf{t}|\mathbf{X},\boldsymbol{\beta},\sigma^{2})=\prod_{i=1}^N p(t_i|\mathbf{x}_i,\boldsymbol{\beta},\sigma^{2}),
+\end{equation}
+其中~$\mathbf{X}:=(\mathbf{x}_1,\cdots,\mathbf{x}_N)^T$~且~$\mathcal{N}(t|a,b)$~表示~$t$~服从均值为~$a$，方差为~$b$~的高斯分布。
+
+然后我们引入权重参数~$\boldsymbol{\beta}$~的先验分布。注意到，公式~\eqref{eq:04}~定义的似然函数~$p(\mathbf{t}|\mathbf{X},\boldsymbol{\beta},\sigma^{2})$~是~$\boldsymbol{\beta}$~的二次函数的指数形式。于是对应的共轭先验是高斯分布，形式为
+\begin{equation}\label{eq:5}
+p(\boldsymbol{\beta}|\gamma)=\mathcal{N}(\boldsymbol{\beta}| \mathbf{0},\gamma^{-1} \mathbf{I}).
+\end{equation}
+从贝叶斯的角度来说，对参数定义先验分布相当于对模型添加正则项。高斯先验分布则对应于~$\ell_{2}$~正则化。
+
+根据贝叶斯理论，在结合权重~$\boldsymbol{\beta}$~上的后验分布计算如下，
+\begin{equation*}
+p(\boldsymbol{\beta}|\mathbf{t},\mathbf{X},\gamma, \sigma^{2})=\frac{p(\mathbf{t}|\mathbf{X},\boldsymbol{\beta},\sigma^{2})p(\boldsymbol{\beta}|\gamma)}{p(\mathbf{t}|\mathbf{X},\gamma, \sigma^{2})},
+\end{equation*}
+其中边际分布如下，
+\begin{equation*}
+p(\mathbf{t}|\mathbf{X},\gamma, \sigma^{2})=\int p(\mathbf{t}|\mathbf{X},\boldsymbol{\beta},\sigma^{2})p(\boldsymbol{\beta}|\gamma)d\boldsymbol{\beta}.
+\end{equation*}
+通过简单的代数运算得到，
+\begin{equation}\label{eq:01}
+p(\boldsymbol{\beta}|\mathbf{t},\mathbf{X},\gamma, \sigma^{2})=\mathcal{N}(\boldsymbol{\beta}|\boldsymbol{\mu},\mathbf{\Sigma}^{-1}),
+\end{equation}
+其中，结合权重~$\boldsymbol{\beta}$~后验分布的均值和方差分别为，
+\begin{align*}
+\boldsymbol{\mu}&=\frac{1}{\sigma^{2}}\mathbf{\Sigma}\mathbf{G}\mathbf{t},\\
+\mathbf{\Sigma}^{-1}&=\gamma\mathbf{I}+\frac{1}{\sigma^{2}}\mathbf{G}\mathbf{G}^{T}.
+\end{align*}
+在实际应用中，我们通常感兴趣的不是~$\boldsymbol{\beta}$~本身的值，而是对于新的~$\mathbf{x}$~值预测出~$t$~的值。这需要计算出预测分布，定义为，
+\begin{equation}\label{pd}
+p(t|\mathbf{X},\mathbf{t},\mathbf{x},\gamma, \sigma^{2})=\int p(t|\mathbf{x}, \boldsymbol{\beta}, \sigma^{2})p(\boldsymbol{\beta}|\mathbf{t},\mathbf{X},\gamma, \sigma^{2})d\boldsymbol{\beta},
+\end{equation}
+上式中~$t$~的预测分布为两个高斯分布的卷积，两个高斯分布的卷积任为高斯分布，故输出变量~$t$~的预测分布是高斯分布，
+\begin{equation}\label{eq:6}
+p(t|\mathbf{X},\mathbf{t},\mathbf{x},\gamma, \sigma^{2})=\mathcal{N}(t|\boldsymbol{\mu}^{T}\mathbf{G}(\mathbf{x}),\phi(\mathbf{x})^{2}),
+\end{equation}
+其中，
+\begin{equation*}
+\phi(\mathbf{x})^{2}=\sigma^{2}+\mathbf{G}^{T}(\mathbf{x}) \mathbf{\Sigma} \mathbf{G}(\mathbf{x}).
+\end{equation*}
+密度函数~$p(t|\mathbf{x}, \boldsymbol{\beta}, \sigma^{2})$~由公式~\eqref{eq:4}~中~$(\mathbf{x}_i,t_i)$~替换为~$(\mathbf{x},t)$~得到。公式~\eqref{eq:6}~中的方差项由两项组成，第一项表示数据中的噪声，而第二项反映了与参数~$\boldsymbol{\beta}$~关联的不确定性。由于噪声和~$\boldsymbol{\beta}$~的分布式相互独立的高斯分布，因此它们的值是可以相加的。注意，当额外的数据点被观测到的时候，后验概率分布会变窄。在极限~$N\to\infty$~时，公式的第二项趋于~0，从而预测分布的方差只由参数~$\sigma^{2}$~控制。同时说明，不确定性的程度随着观测到的数据点的增多而逐渐减小。
+
+为了充分发挥贝叶斯分析方法的潜能，在超参数~$\gamma$~和~$\sigma^{2}$~上也引入先验分布。此时，预测分布可以通过对~$\boldsymbol{\beta},\gamma,\sigma^{2}$~ 求积分的方法得到，即
+\begin{equation*}
+p(t|\mathbf{X},\mathbf{t},\mathbf{x})=\iiint p(t|\mathbf{x}, \boldsymbol{\beta}, \sigma^{2})p(\boldsymbol{\beta}|\mathbf{t},\mathbf{X},\gamma, \sigma^{2})p(\gamma,\sigma^{2}|\mathbf{t},\mathbf{X})d\boldsymbol{\beta}d\gamma d\sigma^{2}
+\end{equation*}
+其中~$p(t|\mathbf{x}, \boldsymbol{\beta}, \sigma^{2})$~由公式~\eqref{eq:4}~给出，$p(\boldsymbol{\beta}|\mathbf{t},\mathbf{X},\gamma, \sigma^{2})$~ 由公式~\eqref{eq:01}~给出。
+根据贝叶斯定理，$\gamma$~和~$\sigma^{2}$~的后验分布为
+\begin{equation*}
+p(\gamma,\sigma^{2}|\mathbf{t},\mathbf{X})\propto p(\mathbf{t}|\mathbf{X},\gamma,\sigma^{2})p(\gamma,\sigma^{2})
+\end{equation*}
+假设~$\gamma$~和~$\sigma^{2}$~独立，高斯分布的精度的共轭先验是伽马分布，故定义共轭先验分布，
+\begin{equation}\label{eq:7}
+ p(\gamma)=Gamma(\gamma|\alpha_{1},\alpha_{2}),
+\end{equation}
+\begin{equation}\label{eq:8}
+ p(\sigma^{2})=Gamma(\sigma^{2}|\alpha_{3},\alpha_{4}).
+\end{equation}
+这里~$\alpha_i,i=1,\cdots,4$~是这两个伽马分布的参数。
+
+在纯粹的贝叶斯方法中，我们引入了超参数~$\gamma$~和~$\sigma^{2}$~的先验分布，理论上应该通过对超参数以及参数~$\boldsymbol{\beta}$~求积分做预测。但是，虽然我们可以解析地求出对~$\boldsymbol{\beta}$~的积分或者求出对超参数的积分，但是对所有这些变量完整地求积分是没有解析解的。这里讨论一种近似方法。这种方法中，我们首先对参数~$\boldsymbol{\beta}$~求积分，得到边缘似然函数，然后通过最大化边缘似然函数，确定超参数的值。
+\begin{gather*}
+ (\sigma_{\ast}^{2},\gamma_{\ast})=\mathop{\arg\max}\bigg\{\int_{\mathbb{R}^{m}}p(\mathbf{t}|\mathbf{X},\boldsymbol{\beta},\sigma^{2})
+ \notag, \\
+ \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad\times p(\boldsymbol{\beta}|\gamma)p(\gamma)p(\sigma^{2})d\boldsymbol{\beta}\bigg\}.
+\end{gather*}
+这种方法在统计学的文献中被称为经验贝叶斯，或者被称为第二类最大似然。在机器学习的文献中，这种方法也被称为证据近似\cite{Bishop2011}。
+
+预测分布为，
+\begin{equation*}
+p(t|\mathbf{X},\mathbf{t},\mathbf{x})\simeq p(t|\mathbf{X},\mathbf{t},\mathbf{x},\gamma_{\ast}, \sigma_{\ast}^{2})=\int p(t|\mathbf{x},\boldsymbol{\beta},\sigma_{\ast}^{2})p(\boldsymbol{\beta}|\mathbf{X},\mathbf{t},\gamma_{\ast},\sigma_{\ast}^{2})d\boldsymbol{\beta}
+\end{equation*}
+
+将~$(\sigma_{\ast}^{2},\gamma_{\ast})$~带入公式~\eqref{eq:6}，得到对于~$\mathbf{x}$~的后验期望估计值。
+
+正如公式~\eqref{eq:1}~中所示，基向量函数~$\mathrm{G}(\mathbf{x})$~是由随机参数~$\{\mathbf{A}, \mathbf{b}\}$~决定的，而从文献
+\cite{Ivan2015,liwang2017}中可知，随机参数取值区间的设定对模型拟合性能有显著影响。我们不能简单的从一个具有固定区间~$[-\lambda,+\lambda]$~ 的均匀分布中随机抽取每组~$(\mathbf{A}_i,b_i)$~的值。对于不同的数据，基函数的参数都从一个固定的，相同的分布中抽取，这是不合理的。从贝叶斯的角度来说，这些基函数的参数也是随机变量，应该对于不同的数据可以服从不同的分布，这是数据结合合适的先验知识，从模型中自动训练出来的。故~$\{\mathbf{A}, \mathbf{b}\}$~ 和~$\boldsymbol{\beta}$~应该被同等对待，即都应该定义相应的先验分布。
+\subsection{变分推断~(VI)~}
+在概率模型的应用中，一个中心任务是在给定观测数变量~$\mathbf{X}$~的条件下，计算潜在变量~$\boldsymbol{z}$~的后验概率分布，以及计算关于这个概率分布的期望。模型可能也包含某些确定性参数，我们现在不考虑它。模型也可能是一个纯粹的贝叶斯模型，其中任何未知的参数都有一个先验概率分布，并且被整合到了潜在变量集合中，记作向量~$\boldsymbol{z}$。例如，在~EM~算法中，我们需要计算完整数据对数似然函数关于潜在变量后验概率分布的期望。对于实际应用中的许多模型来说，计算后验概率分布或者计算关于这个后验概率分布的期望是不可行的。这可能是由于潜在空间的维度太高，以至于无法直接计算，或者由于后验概率分布的形式特别复杂，从而期望无法解析地计算。在连续变量的情形中，需要求解的积分可能没有解析解，而空间的维度和被积函数的复杂度可能使得数值积分变得不可行。对于离散变量，求边缘概率的过程涉及到对隐含变量的所有可能的配置进行求和。这个过程虽然原则上总是可以计算的，但是我们在实际应用中经常发现，隐含状态的数量可能有指数多个，从而精确的计算所需的代价过高。
+
+在这种情况下，我们需要借助近似方法。根据近似方法依赖于随机近似还是确定近似，方法大体分为两大类。随机方法，例如马尔科夫链蒙特卡罗方法，使得贝叶斯方法能够在许多领域中广泛使用。这些方法通常具有这样的性质：给定无限多的计算资源，它们可以生成精确的结果，近似的来源是使用了有限的处理时间。在实际应用中，取样方法需要的计算量会相当大，经常将这些方法的应用限制在了小规模的问题中。并且，判断一种取样方法是否生成了服从所需的概率分布的独立样本是很困难的。这里我们使用一种确定性近似方法——变分推断。变分推断方法通过寻找分布族中最接近后验分布的成员，使目标函数的求解变成了一个优化问题。变分推断在许多应用中比经典的抽样方法诸如~MCMC~更快。变分推断的思想是首先假定一个密度函数族，然后找到接近目标分布的位于族中的成员。通过~Kullback-Leibler~散度衡量相近程度。
+
+假设我们有一个纯粹的贝叶斯模型，其中每个参数都有一个先验概率分布，这个模型也可以有潜在变量及其参数，我们会把所有潜在变量和参数组成的集合记作~$\boldsymbol{z}$。类似地，我们会把所有观测变量的集合记作~$\mathbf{X}$。例如，我们的概率模型确定了联合概率分布~$p(\mathbf{X},\boldsymbol{z})$，我们的目标是找到对后验概率分布~$p(\boldsymbol{z}|\mathbf{X})$~以及模型证据~$p(\mathbf{X})$~的近似。将对数边缘概率分解，即，
+\begin{equation*}
+\log p(\mathbf{X})=\mathcal{L}(q)+\mathrm{KL}(q\|p),
+\end{equation*}
+其中，
+\begin{equation*}
+\mathcal{L}(q)=\int q(\boldsymbol{z})\log\bigg\{\frac{p(\mathbf{X},\boldsymbol{z})}{q(\boldsymbol{z})}\bigg\}d\boldsymbol{z},
+\end{equation*}
+且
+\begin{equation*}
+\mathrm{KL}(q\|p)=-\int q(\boldsymbol{z})\log\bigg\{\frac{p(\boldsymbol{z}|\mathbf{X})}{q(\boldsymbol{z})}\bigg\}d\boldsymbol{z}.
+\end{equation*}
+若变量为离散变量，只需把积分符号替换为求和即可。值得注意的是上面两个公式的符号相反，并且~$\mathcal{L}(q)$~包含了~$\mathbf{X}$~和~$\boldsymbol{z}$~ 的联合概率分布，而~$\mathrm{KL}(q\|p)$~包含了给定~$\mathbf{X}$~的条件下，$\boldsymbol{z}$~的条件概率分布。这里我们用~$q(\boldsymbol{z})$~去近似复杂的后验分布~$p(\boldsymbol{z}|\mathbf{X})$，$\mathrm{KL}(q\|p)$~即为这两个概率分布的~K-L~散度，衡量这两个概率分布的相近程度。K-L~散度满足~$\mathrm{KL}(q\|p)\ge0$，当且仅当~$q(\boldsymbol{z})=p(\boldsymbol{z}|\mathbf{X})$~时等号成立。因此，$\mathcal{L}(q)\le\log p(\mathbf{X})$，换句话说，$\mathcal{L}(q)$~是~$\log p(\mathbf{X})$~ 的一个下界，也被称为证据下界~(ELBO)。我们可以通过关于概率分布~$q(\boldsymbol{z})$~的最优化来使证据下界~$\mathcal{L}(q)$~达到最大值，从而最大化对数似然函数~$\log p(\mathbf{X})$。如果我们允许任意选择~$q(\boldsymbol{z})$，那么证据下界的最大值出现在~K-L~散度等于~0~的时刻，此时~$q(\boldsymbol{z})$~等于后验概率分布~$p(\boldsymbol{z}|\mathbf{X})$。然而，我们假定在需要处理的模型中，对真实的概率分布进行操作是不可行的。
+
+我们考虑概率分布~$q(\boldsymbol{z})$~的一个受限制的类别。我们的目标是充分限制~$q(\boldsymbol{z})$~可以取得的概率分布的类别范围，使得这个范围中的所有概率分布都是可以处理的概率分布。同时，我们还要使这个范围充分大、充分灵活，从而它能够提供对真实后验概率分布的一个足够好的近似。
+
+限制近似概率分布的范围的一种方法是使用参数概率分布~$q(\boldsymbol{z}|\boldsymbol{\theta})$，它由参数集合~$\boldsymbol{\theta}$~控制。这样，证据下界~$\mathcal{L}(q)$~变成了~$\boldsymbol{\theta}$~的函数，我们可以利用标准的非线性最优化方法确定参数的最优值。
+
+另一种方法，对概率分布~$q(\boldsymbol{z})$~施加限制条件，假设我们将~$\boldsymbol{z}$~的元素划分为若干个互不相交的组，记作~$\boldsymbol{z}_{i},i=1,\dots,M$。然后，我们假定~$q$~分布关于这些分组可以进行分解，即
+\begin{equation*}
+q(\boldsymbol{z})=\prod_{i=1}^{M}q_{i}(\boldsymbol{z}_{i})
+\end{equation*}
+注意，我们没有限制各个因子~$q_{i}(\boldsymbol{z}_{i})$~的函数形式。变分推断的这个分解形式对应于物理学中的一个近似框架，叫做平均场理论。我们可以通过对每个因子的最优化来完成整体的最优化。
+\section{IB-RVFL~的理论与算法}
+综合公式~(\ref{eq:1})-(\ref{eq:8})，我们提出一个改进的贝叶斯随机向量泛函网络模型~(IB-RVFL)，我们在基函数的参数上也定义了先验分布，这里我们选择典型的高斯分布。通过在训练过程中引入额外的先验知识，不仅模型的学习能力得到提高，而且针对基本的~RVFL~模型中对随机参数确定问题的困难性和重要性，提供了一个有效的解决方案。在~IB-RVFL~模型中，我们增加对基函数~$G(\mathbf{A}_{i}^T\mathbf{x}+b_i),i=1,\dots,m$~($m$~为基函数的个数)~的参数~$\{\mathbf{A}, \mathbf{b}\}$~定义相应的先验分布。应用贝叶斯方法，我们可以从模型和数据样本中自动推断出模型参数，增强了模型的鲁棒性。
+
+令
+\begin{equation}\label{eq:9}
+p(A_{ij})=\mathcal{N}(A_{ij}|\mu_{ij},\eta_{ij}^{-1}),
+\end{equation}
+\begin{equation}\label{eq:10}
+p(b)=\mathcal{N}(b|\kappa_{1},\kappa_{2}^{-1}).
+\end{equation}
+从参数优化的角度，我们对~$\mathbf{A}$~中的每个元素定义不同的高斯分布，且假设这些元素相互独立。同时，对~$\mathbf{b}$~中的元素使用相同的高斯分布~(在下文中，$\mathbf{b}$~会简记为~$b$)。在“神经网络的贝叶斯学习\cite{Neal1996}”中，也提出了类似的框架，网络中基函数的权重参数有相同的分布，隐藏单元的数目是无限的。相同的分布限制了模型的学习能力，即使对一个简单的学习任务，模型也需要大量的隐藏单元来进行学习。而~IB-RVFL~是更加灵活的和自适应的，它只需要少量的隐藏单元。
+
+令~$\boldsymbol{z}=\{\boldsymbol{\beta},\mathbf{A},b,\sigma^{2},\gamma\}$，结合公式~(\ref{eq:4})，(\ref{eq:5})，(\ref{eq:7})-(\ref{eq:10})，我们得到这个概率模型的联合分布，
+\begin{equation}\label{eq:11}
+p(\mathcal{D},\boldsymbol{z})=p(\mathbf{t}|\mathbf{X},\boldsymbol{\beta},\sigma^{2},\mathbf{A},b)p(\boldsymbol{\beta}|\gamma)p(\sigma^{2})p(\gamma)p(\mathbf{A})p(b),
+\end{equation}
+其中~$p(\mathbf{A})$~是~$m\times d$~个不同的~$p(A_{ij})$~的乘积~(基于独立性假设)。
+
+利用贝叶斯公式，得到~$\boldsymbol{z}$~的后验分布如下，
+\begin{equation}\label{eq:postz}
+p(\boldsymbol{z}|\mathcal{D})=\frac{p(\mathcal{D},\boldsymbol{z})}{\int_{\boldsymbol{z}}p(\mathcal{D},\boldsymbol{z})d\boldsymbol{z}}.
+\end{equation}
+公式~(\ref{eq:postz})~中的积分项是计算不可行的，这是一个维度为~$m\times(d+1)+3$~(因为~$\boldsymbol{\beta}$~是~$m$~维，$\mathbf{A}$~是~$m\times d$~ 维，$b,\gamma,\sigma^{2}$~是标量)~ 的高维积分。因此我们使用变分推断~(VI)~方法，VI~方法通过变分近似去近似真实的后验分布，将复杂的后验计算转化为优化问题。
+
+对参数~$\boldsymbol{z}$~定义近似密度分布族，通过变分推断~(VI)~最大化证据下界~(ELBO)~来最大化对数似然函数~$\log p(\mathcal{D})$。令~$\boldsymbol{\theta}$~为变分分布~$q(\boldsymbol{z}|\boldsymbol{\theta})$~的变分参数，我们定义证据下界为，
+\begin{equation*}
+\mathcal{L}(\boldsymbol{\theta})\triangleq E_{q_{\boldsymbol{\theta}}(\boldsymbol{z})}[\log p(\boldsymbol{z},\mathcal{D})]+\mathbb{H}[q(\boldsymbol{z}|\boldsymbol{\theta})].
+\end{equation*}
+第一式是联合分布函数关于变分分布的对数期望，第二式是变分分布的熵，
+\begin{equation*}
+\mathbb{H}[q(\boldsymbol{z}|\boldsymbol{\theta})]=-E_{q_{\boldsymbol{\theta}}(\boldsymbol{z})}[\log q(\boldsymbol{z}|\boldsymbol{\theta})].
+\end{equation*}
+
+我们对公式~(\ref{eq:postz})~中的参数~$\boldsymbol{z}$~进行坐标变换，即~$\boldsymbol{\phi}=T(\boldsymbol{z})$，相应的分布函数~$p(\boldsymbol{z},\mathcal{D})$~记为~$p(\boldsymbol{\phi},\mathcal{D})$。通过简单的坐标变换，将参数~$\boldsymbol{z}$~的取值范围映射到整个实数空间\cite{Kucukelbir2016Automatic}。在本文中，参数~$\sigma^{2}$~和~$\gamma$~的取值范围都是大于~0~的，需要对它们进行坐标变换，即~$c=\log(\sigma^{2}), d=\log(\gamma)$。通过这样的变换，保证所有的参数都是在整个实数空间中取值。记~$\boldsymbol{\phi}=\{\boldsymbol{\beta},\mathbf{A},b,c,d\}$，$T$~为相应的变换，则
+\begin{equation}\label{eq:12}
+p(\boldsymbol{\phi},\mathcal{D})=p(T^{-1}(\boldsymbol{\phi},\mathcal{D}))|\det J_{T^{-1}}(\boldsymbol{\phi})|,
+\end{equation}
+证据下界~(ELBO)~变为，
+\begin{equation*}
+\mathcal{L}(\boldsymbol{\theta})\triangleq E_{q_{\boldsymbol{\theta}}(\boldsymbol{\phi})}[\log p(\boldsymbol{\phi},\mathcal{D})]+\mathbb{H}[q(\boldsymbol{\phi}|\boldsymbol{\theta})].
+\end{equation*}
+将~$\boldsymbol{\phi}$~的元素划分为若干个互不相交的组，记作~$\phi_{i}$，其中~$i=\{1,\ldots,B\},  B=m\times(d+1)+3$。我们用这些相互独立的一元高斯分布的乘积来近似原来的后验分布，
+\begin{equation*}
+q(\boldsymbol{\phi}|\boldsymbol{\theta})=\mathcal{N}(\boldsymbol{\phi}|\boldsymbol{\zeta},\boldsymbol{\xi}^{2})=\prod_{i=1}^{B}\mathcal{N}(\phi_{i}|\zeta_{i},\xi_{i}^{2}),
+\end{equation*}
+其中~$\boldsymbol{\theta}=\{\zeta_{1},\dots,\zeta_{B},\xi_{1}^{2},\dots,\xi_{B}^{2}\}$，这种变分推断的分解形式被称为平均场理论。
+
+接下来，我们进行第二次坐标变换，这些一元高斯分布中的标准差取值范围都为正值，故要对它们进行坐标变换，映射到整个实数空间中。简单的对数变换即可实现，记~$\omega_{i}=\log(\xi_{i})$。则
+\begin{equation*} q(\boldsymbol{\phi}|\boldsymbol{\theta})=\mathcal{N}(\boldsymbol{\phi}|\boldsymbol{\zeta},\mathrm{diag}(\exp^{2}(\boldsymbol{\omega})))
+\end{equation*}
+其中~$\boldsymbol{\theta}=(\zeta_{1},\dots,\zeta_{B},\omega_{1},\dots,\omega_{B})$。为了方便进行自动微分，我们进一步将这些一元高斯分布变换为标准的一元高斯分布，即以~0~为均值，1~为方差的高斯分布。故令~$\nu_{i} = S(\phi_{i}) = \exp(\omega_{i})^{-1}(\phi_{i}-\zeta_{i})$，则
+\begin{equation}\label{eq:13}
+q(\boldsymbol{\nu})=\mathcal{N}(\boldsymbol{\nu}|\boldsymbol{0},\mathbf{I})=\prod_{i=1}^{B}\mathcal{N}(\nu_{i}|0,1).
+\end{equation}
+通过这些变换，公式~(\ref{eq:12})~中的联合分布~$p(\boldsymbol{\phi},\mathcal{D})$~变为~$p(\boldsymbol{\nu},\mathcal{D})$，如下所示，
+\begin{equation}\label{eq:14}
+  p(\boldsymbol{\nu},\mathcal{D})=p(T^{-1}(S^{-1}_{\boldsymbol{\theta}}(\boldsymbol{\nu})),\mathcal{D})|\det J_{T^{-1}}(S^{-1}_{\boldsymbol{\theta}}(\boldsymbol{\nu}))|.
+\end{equation}
+证据下界~(ELBO)~变为，
+\begin{equation}\label{elbo}
+  \mathcal{L}(\boldsymbol{\theta})\triangleq E_{\mathcal{N}(\boldsymbol{\nu}|\boldsymbol{0},\mathbf{I})}[\log p(\boldsymbol{\nu},\mathcal{D})]+\mathbb{H}[ q(\boldsymbol{\phi}|\boldsymbol{\theta})].
+\end{equation}
+我们不需要对熵进行变换，因为它是不随变量的坐标变换而改变的。对于高斯分布的熵，我们有一个简单的解析形式\cite{Cover2003Elements}。若变量~$x$~服从均值为~$\mu$，方差为~$\sigma^{2}$~的高斯分布，即~$x\sim\mathcal{N}(\mu,\sigma^{2})$，则~$x$~的熵~$\mathbb{H}[x]=-\int p(x)\log p(x)dx=\frac{1}{2}(1+\log(2\pi))+\log(\sigma)$。可看出正态分布的熵只与标准差有关。对于变分分布~$q(\boldsymbol{\phi}|\boldsymbol{\theta})$，可分解为多个一元正态分布的乘积，则它的熵为
+\begin{equation*}
+\mathbb{H}[q(\boldsymbol{\phi}|\boldsymbol{\theta})]=\frac{B}{2}(1+\log(2\pi))+\sum_{i=1}^{B}\omega_{i}
+\end{equation*}
+然后，我们对这个证据下界~(ELBO)~进行随机优化。因为联合分布~$p(\boldsymbol{\nu},\mathcal{D})$~的对数期望不再依赖于参数~$\boldsymbol{\theta}$，故我们可以直接计算它的梯度。应用链式规则，得到\cite{Kucukelbir2016Automatic}，
+\begin{align}\label{eq:15}
+    \nabla_{\boldsymbol{\zeta}}\mathcal{L}=E_{\mathcal{N}(\boldsymbol{\nu})}[\nabla_{\boldsymbol{z}}\log p(\boldsymbol{z},\mathcal{D})\nabla_{\boldsymbol{\phi}}T^{-1}(\boldsymbol{\phi})\notag\\
+    \quad\quad\quad\quad\quad+\nabla_{\boldsymbol{\phi}}\log |\det J_{T^{-1}}(\boldsymbol{\phi})|],
+\end{align}
+且
+\begin{align}\label{eq:16}
+    \nabla_{\boldsymbol{\omega}}\mathcal{L}=E_{\mathcal{N}(\boldsymbol{\nu})}[(\nabla_{\boldsymbol{z}}\log p(\boldsymbol{z},\mathcal{D})\nabla_{\boldsymbol{\phi}}T^{-1}(\boldsymbol{\phi})\notag\\
+    +\nabla_{\boldsymbol{\phi}}\log |\det J_{T^{-1}}(\boldsymbol{\phi})|)\boldsymbol{\nu}^{T}\mathrm{diag}(\exp(\boldsymbol{\omega}))]+\mathbf{1}.
+\end{align}
+故期望内的梯度可以通过自动微分计算，但是求解期望又涉及到积分计算，这是非常复杂的，我们可以采用蒙特卡洛方法去近似它。即从标准的高斯分布~$\mathcal{N}(\boldsymbol{\nu})$~中抽样，将抽取的样本带入到梯度公式中求平均，用经验均值去近似它的期望。比如，将公式~\eqref{eq:15}~右边项括号中的式子用符号~$g_{\boldsymbol{\zeta}}$~表示，则蒙特卡洛方法近似~$\nabla_{\boldsymbol{\zeta}}\mathcal{L}$~为，
+\begin{equation*}
+\nabla_{\boldsymbol{\zeta}}\mathcal{L}=E_{\mathcal{N}(\boldsymbol{\nu})}[g_{\boldsymbol{\zeta}}(\boldsymbol{\nu})]=\frac{1}{S}\sum_{s=1}^{S} g_{\boldsymbol{\zeta}}(\boldsymbol{\nu}_{s}),
+\end{equation*}
+其中~$S$~抽取样本的数目，且~$\boldsymbol{\nu}_{s}\backsim q(\boldsymbol{\nu})$，见公式~\eqref{eq:13}。实际上，在训练过程中单个的样本就足够了\cite{Kucukelbir2016Automatic}。这给出了证据下界~(ELBO)~的无偏估计，然后我们可以使用随机梯度下降算法进行优化，见\textbf{算法~\ref{alg:1}}。 该算法保证证据下界~(ELBO)~会收敛到局部最优，其中学习率~$\rho_{i}$~满足~Robbins-Monro~条件，即~$\sum\rho_{i}=\infty$ and $\sum\rho_{i}^{2}<\infty$。模型收敛之后返回参数~$\boldsymbol{\zeta}$~ 和~$\boldsymbol{\omega}$~的最优值，将它们带入预测分布中，
+\begin{align}\label{eq:17}
+p(t|\mathcal{D},\mathbf{x},\boldsymbol{z})&=E_{q(\boldsymbol{z}|\boldsymbol{\theta})}[p(t|\mathbf{x},\boldsymbol{z})]
+\notag \\
+&=E_{\mathcal{N}(\boldsymbol{\nu})}[p(t|\mathbf{x},T^{-1}(S^{-1}_{\boldsymbol{\phi}}(\boldsymbol{\nu})))
+\notag \\
+& \quad \quad \quad \quad \ast|\det J_{T^{-1}}(S^{-1}_{\boldsymbol{\phi}}(\boldsymbol{\nu}))|],
+\end{align}
+条件分布~$p(t|\mathbf{x},\boldsymbol{z})$~由公式~(\ref{eq:4})~给出。注意公式~(\ref{eq:4})~中的~$\mathbf{A}$~和~$b$~都是随机变量。公式~(\ref{eq:17})~的解析表达式难以求解，故采用蒙特卡洛方法近似。
+
+上述过程很容易和自动微分工具结合，例如~ADVI，用户只需定义模型的先验分布及似然函数，工具会通过从正态分布中抽取随机样本自动计算梯度，从而实现证据下界~(ELBO)~的优化。
+
+\noindent {\bf 算法~1~} 对不确定数据建模的改进贝叶斯随机向量泛函网络~(IB-RVFL)~
+\begin{algorithm}[htbp]
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Initialize}}
+\caption{算法~1}\label{alg:1}
+\begin{algorithmic}
+\REQUIRE 数据集~$\mathcal{D}$，联合分布~$p(\mathcal{D},\boldsymbol{z})$。
+\ENSURE $i=1$，$\boldsymbol{\zeta}^{(1)}=\mathbf{0}$，$\boldsymbol{\omega}^{(1)}=\mathbf{0}$。
+\STATE\textbf{While} 证据下界~(ELBO)~的变动高于阈值：
+\STATE \quad 抽取~$S$~个样本，$\boldsymbol{\nu}_{s}\backsim\mathcal{N}(\mathbf{0},\mathbf{I})$。
+\STATE \quad 根据公式~(\ref{eq:15})~近似~$\nabla_{\boldsymbol{\zeta}}\mathcal{L}$。
+\STATE \quad 根据公式~(\ref{eq:16})~近似~$\nabla_{\boldsymbol{\omega}}\mathcal{L}$。
+\STATE \quad 更新~$\boldsymbol{\zeta}^{(i+1)}=\boldsymbol{\zeta}^{(i)}+\mathrm{diag}(\boldsymbol{\rho}^{(i)})\nabla_{\boldsymbol{\zeta}}\mathcal{L}$。
+\STATE \quad 更新~$\boldsymbol{\omega}^{(i+1)}=\boldsymbol{\omega}^{(i)}+\mathrm{diag}(\boldsymbol{\rho}^{(i)})\nabla_{\boldsymbol{\omega}}\mathcal{L}$。
+\STATE \quad $i=i+1$。
+\STATE\textbf{EndWhile}
+\STATE\textbf{Return} $\boldsymbol{\zeta}$，$\boldsymbol{\omega}$。
+\STATE 根据公式~(\ref{eq:17})~得到预测分布。
+\end{algorithmic}
+\end{algorithm}
+
+\section{算法实验}
+在我们的实验中，我们首先通过在五个真实的回归数据集上进行实验，将~IB-RVFL~与~RVFL~和~B-RVFL~对比做一个全面的评估。然后在四个新的真实回归数据集上进行实验，将~IB-RVFL~与~B-RVFL，RSCNs\cite{RSCN2017}~(RSCNs~是针对不确定性数据建模的随机配置网络，是在~SCNs\cite{SCN2017}~基础上发展而来的鲁棒性模型)，还有两种经典的机器学习算法——SVM\cite{Vapnik1995Svm}~和~Random-Forest\cite{Ho1998Random}~进行对比。所有这些数据集都来自~UCI\footnote{\url{http://archive.ics.uci.edu/ml/datasets.html}\label{web1}}~和~KEEL\footnote{\url{http://sci2s.ugr.es/keel/datasets.php}\label{web2}}。
+\subsection{数据介绍}
+数据集的基本特征在表格~(\ref{tab:1})~中被描述。对于数据集~Concrete-Slump，有~$7$~个输入变量，$3$~ 个输出变量，我们选择变量~Slump~作为观测值。在数据预处理的过程中，我们将输入变量归一化到~$[-1,1]$，输出变量归一化到~$[0,1]$。缺失值由相关特征的众数替代，字符型变量选择~one-hot~编码。随机选取~$75\%$~的数据集作为训练样本，剩下的~$25\%$~作为测试样本。
+ \begin{table*}[htbp]
+ \caption{Schematic Descriptions of the Data Sets}\label{tab:1}
+ \centering
+ \resizebox{\textwidth}{!}{
+ \begin{tabular}{lccc}
+ \hline
+ Data Sets &Features &Samples &Desired output\\ \hline
+ Airfoil\textsuperscript{\ref{web1}} &6 &1503 &Sound pressure level\\
+ Boston\textsuperscript{\ref{web1}} &13 &506 &Median house value\\
+ Concrete\textsuperscript{\ref{web1}} &9 &1030 &Concrete compressive strength\\
+ Abalone\textsuperscript{\ref{web1}} &8 &4177 &Number of rings\\
+ Communities\textsuperscript{\ref{web1}} &128 &1994 &Violent crimes per capita\\
+ Concrete-Slump\textsuperscript{\ref{web1}} &10 &103 &Slump\\
+ ele-1\textsuperscript{\ref{web2}} &2 &495 &Length\\
+ Baseball\textsuperscript{\ref{web2}} &16 &337 &Salary\\
+ delta-elv\textsuperscript{\ref{web2}} &6 &9517 &Se\\
+ \hline
+ \end{tabular}}
+ \end{table*}
+\subsection{模型参数介绍与性能评价方法}
+  在~IB-RVFL~实验中，我们通过变分推断~VI~求解后验分布。出于方便，我们直接使用~PyMC3\footnote{\url{https://github.com/pymc-devs/pymc3}}~库中的方法——ADVI，来执行\textbf{算法~\ref{alg:1}}。先验分布的初始值总结在表格~(\ref{tab:2})~中。我们只需要定义模型的先验分布和似然函数，ADVI~能自动计算梯度，完成证据下界~ELBO~和相应的近似后验的优化。我们用~MAP~估计值初始化~ADVI，用默认的~Adagrad~方法更新学习率~$\rho_i$。另外，我们用“针对鲁棒数据建模的贝叶斯随机向量泛函网络\cite{Scardapane2017Bayesian}”中的方法对~RVFL~和~B-RVFL~进行实验，对~RSCNs~则参考“针对不确定性数据，结合核密度估计的鲁棒性随机配置网络\cite{RSCN2017}”。我们使用流行的~scikit-learn\footnote{\url{http://scikit-learn.org/}}~库执行~SVM\cite{Vapnik1995Svm}~和~Random-Forest\cite{Ho1998Random}~算法。上述算法中参数的取值范围在表格~(\ref{tab:2})~中介绍。
+ \begin{table*}[htbp]
+ \caption{Parameters description}\label{tab:2}
+ \centering
+\resizebox{\textwidth}{!}{
+ \begin{tabular}{lcc}
+ \hline
+ Algorithms &Parameters &Parameters Range\\
+ \hline
+ IB-RVFL  &\tabincell{c}{The number of basic functions $m$\\Initial hyperprior parameters $\alpha_{i},i=1,2,3,4$\\$\mu_{ij},\eta_{ij},i=1,\dots,m, j=1,\dots,d$\\$\kappa_{1},\kappa_{2}$} &\tabincell{c}{$m=\{2,5,10,20,30\}$\\$\alpha_{i}=10^{-5},i=1,2,3,4$\\$\mu_{ij}=0,\eta_{ij}=1$\\$\kappa_{1}=0,\kappa_{2}=1$}\\
+ \hline
+ RVFL  &\tabincell{c}{The regularization factor $C$\\Inner weight $w_{i},b_{i}$} &\tabincell{c}{$C=\{2^{-10},2^{-9},\dots,2^{10}\}$\\$w_{i},b_{i}\sim U[-\lambda,\lambda],i.i.d.,$\\$\lambda=\{10^{-2},10^{-1.5},\dots,10^{4}\}$}\\
+ \hline
+ B-RVFL  &\tabincell{c}{The number of random bases $B$\\Initial hyperprior parameters $\alpha_{i},i=1,2,3,4$\\Inner weight $w_{i},b_{i}$} &\tabincell{c}{$B=500$\\$\alpha_{i}=10^{-6},i=1,2,3,4$\\$w_{i},b_{i}\sim U[-\lambda,\lambda],i.i.d.,$\\$\lambda=\{10^{-2},10^{-1.5},\dots,10^{4}\}$}\\
+ \hline
+ RSCN  &\tabincell{c}{The maximum times of random configuration $T_{max}$\\The maximum number of alternating optimization $\nu$\\The maximum number of hidden nodes $\L_{max}$\\The expected error tolerance $\epsilon$\\Scope parameter $\lambda$} &\tabincell{c}{$T_{max}=100$\\$\nu=\{2,3,5,8,10,12\}$\\$L_{max}=\{30,50,100,150,200\}$\\$\epsilon=0.05$\\$\lambda=\{0.1,0.5,1,3,5\}$}\\
+ \hline
+ Random Forest  &The number of trees $n$ &$n=\{10,20,\dots,100\}$\\
+ \hline
+ SVM  &RBF scale $\gamma$ &$\gamma=\{10^{-2},10^{-1.5},\dots,10^{2}\}$\\
+ \hline
+ \end{tabular}}
+ \end{table*}
+
+\noindent 为了全面的比较不同算法的优劣，我们考虑三个精确性度量指标：均方误差~(MSE)、决定系数~($R^{2}$)、解释方差~($E_{var}$)，并在测试数据集~$\mathcal{T}=\{(\mathbf{x}_{i},y_{i})|i=1,\dots,T\}$上进行测试。
+
+均方误差~(MSE)~度量真实值与预测值误差平方的均值，
+\begin{equation*}
+\mathrm{MSE}=\frac{1}{T}\sum_{i=1}^{T}(y_{i}-f(\mathbf{x}_{i}))^{2}.
+\end{equation*}
+决定系数~$R^{2}$~在统计学中用于度量因变量的变异中可由自变量解释部分所占的比例，以此来判断统计模型的解释力。
+\begin{equation*}
+R^{2}=1-\frac{\sum_{i=1}^{T}(y_{i}-f(\mathbf{x}_{i}))^{2}}{\sum_{i=1}^{T}(y_{i}-\bar{y})^{2}}.
+\end{equation*}
+解释方差~$E_{\mathrm{VAR}}$~度量回归方程对模型的解释能力，$y_{i}$~为观测值，$f(\mathbf{x}_{i})$~ 为预测值，$\mathrm{Var}_{\mathcal{T}}(\cdot)$~计算对测试数据集~$\mathcal{T}$~的经验方差，
+\begin{equation*}
+E_{\mathrm{VAR}}=1-\frac{\mathrm{Var}_{\mathcal{T}}(y_{i}-f(\mathbf{x}_{i}))}{\mathrm{Var}_{\mathcal{T}}(y_{i})}.
+\end{equation*}
+对于~$R^{2}$~和~$E_{\mathrm{VAR}}$，值越大，模型性能越好，而对于~MSE，则是越小越好。
+\subsection{实验报告}
+对于~RVFL，B-RVFL~和~IB-RVFL~方法，在刚开始的五个数据集上的实验结果展示在表格~(\ref{tab:3})~中，IB-RVFL，BVFL，RSCN，SVM~和~Random-Forest在另外四个数据集上的实验结果则展示在表格~(\ref{tab:4})~ 中。
+\begin{table*}[htbp]
+\caption{Performance of IB-RVFL, RVFL and B-RVFL}\label{tab:3}
+ \centering
+ \resizebox{\textwidth}{!}{
+ \begin{tabular}{lcccc}
+ \hline
+ Data Sets &Algorithms &$R^{2}$ &$E_{\mathrm{VAR}}$ &MSE \\
+ \hline
+ \multirow{3}{*}{Airfoil}
+ &IB-RVFL&$\mathbf{0.8872\pm0.0015}$&$\mathbf{0.8896\pm0.0013}$&$\mathbf{0.0062\pm0.0001}$\\
+ &RVFL&0.7137$\pm$0.0470&0.7157$\pm$0.0471&0.0095$\pm$0.0015 \\
+ &B-RVFL&0.7843$\pm$0.0440&0.7859$\pm$0.044&0.0071$\pm$0.0014 \\
+ \hline
+ \multirow{3}{*}{Boston}
+ &IB-RVFL&$\mathbf{0.8992\pm0.0161}$&$\mathbf{0.9018\pm0.0174}$&$\mathbf{0.0049\pm0.0008}$\\
+ &RVFL&0.8743$\pm$0.0518&0.8768$\pm$0.0516&0.0052$\pm$0.0026 \\
+ &B-RVFL&0.8758$\pm$0.0568&0.8781$\pm$0.0567&0.0051$\pm$0.0028 \\
+ \hline
+ \multirow{3}{*}{Concrete}
+ &IB-RVFL&0.8346$\pm$0.0117&0.8358$\pm$0.0122&0.0071$\pm$0.0005\\
+ &RVFL&0.8318$\pm$0.0356&0.8340$\pm$0.0348&0.0071$\pm$0.0012 \\
+ &B-RVFL&$\mathbf{0.8672\pm0.0302}$&$\mathbf{0.8687\pm0.0300}$&$\mathbf{0.0056\pm0.0010}$ \\
+ \hline
+ \multirow{3}{*}{Abalone}
+ &IB-RVFL&$\mathbf{0.5809\pm0.0048}$&$\mathbf{0.5838\pm0.0033}$&$\mathbf{0.0055\pm0.0001}$\\
+ &RVFL&0.5630$\pm$0.0433&0.5638$\pm$0.0415&0.0058$\pm$0.0008 \\
+ &B-RVFL&0.5646$\pm$0.0415&0.5654$\pm$0.0414&0.0057$\pm$0.0007 \\
+ \hline
+ \multirow{3}{*}{Communities}
+ &IB-RVFL&$\mathbf{0.6677\pm0.0037}$&$\mathbf{0.6697\pm0.0023}$&$\mathbf{0.0175\pm0.0002}$\\
+ &RVFL&0.6590$\pm$0.0510&0.6607$\pm$0.0510&0.0184$\pm$0.0032 \\
+ &B-RVFL&0.6600$\pm$0.0515&0.6618$\pm$0.0515&0.0183$\pm$0.0031 \\
+ \hline
+ \end{tabular}}
+ \end{table*}
+
+ \begin{table*}[htbp]
+ \caption{Performance of IB-RVFL, B-RVFL, RSCN, Random Forest and SVM}\label{tab:4}
+ \centering
+ \resizebox{\textwidth}{!}{
+ \begin{tabular}{lcccc}
+ \hline
+ Data Sets &Algorithms &$R^{2}$ &$E_{\mathrm{VAR}}$ &MSE \\
+ \hline
+ \multirow{5}{*}{Concrete-Slump}
+ &IB-RVFL&$\mathbf{0.5325\pm 0.0049 }$&$\mathbf{0.5431\pm 0.0021}$&$\mathbf{0.0457\pm 0.0005}$\\
+ &B-RVFL&0.3062$\pm$0.0208&0.3855$\pm$0.0180&0.0525$\pm$0.0016\\
+ &RSCN&0.3449$\pm$0.1515&0.3717$\pm$0.1371&0.0495$\pm$0.0115\\
+ &Random Forest&0.0812$\pm$0.0647&0.1548$\pm$0.0590&0.0695$\pm$0.0049 \\
+ &SVM &0.3326&0.4031&0.0505 \\
+ \hline
+ \multirow{5}{*}{ele-1}
+ &IB-RVFL&$\mathbf{0.7305\pm 0.0055}$&$\mathbf{0.7308\pm 0.0053}$&$\mathbf{0.0069\pm0.0001}$\\
+ &B-RVFL&0.6729$\pm$0.0041&0.6729$\pm$0.0041&0.0084$\pm$0.0001 \\
+ &RSCN&0.6791$\pm$0.0039&0.6791$\pm$0.0040&0.0082$\pm$0.0001 \\
+ &Random Forest&0.6729$\pm$0.0137&0.6738$\pm$0.0136&0.0084$\pm$0.0004 \\
+ &SVM &0.6884&0.6994&0.0080 \\
+ \hline
+ \multirow{5}{*}{Baseball}
+ &IB-RVFL&$\mathbf{0.6736\pm0.0045}$&$\mathbf{0.6801\pm 0.0030}$&$\mathbf{0.0159\pm 0.0002}$\\
+ &B-RVFL&0.6441$\pm$0.0083&0.6503$\pm$0.0081&0.0174$\pm$0.0004 \\
+ &RSCN&0.6646$\pm$0.0070&0.6760$\pm$0.0071&0.0164$\pm$0.0003 \\
+ &Random Forest&0.5900$\pm$0.0141&0.5973$\pm$0.0138&0.0200$\pm$0.0007 \\
+ &SVM &0.6311&0.6449&0.0180 \\
+ \hline
+ \multirow{5}{*}{delta-elv}
+ &IB-RVFL&$\mathbf{0.6429\pm0.0009}$&$\mathbf{0.6431\pm 0.0009}$&$\mathbf{0.00265\pm 0.00001}$\\
+ &B-RVFL&0.6400$\pm$0.0185&0.6405$\pm$0.0185&0.00283$\pm$0.00023 \\
+ &RSCN&0.6395$\pm$0.0041&0.6396$\pm$0.0041&0.00267$\pm$0.00003 \\
+ &Random Forest&0.6291$\pm$0.0018&0.6291$\pm$0.0018&0.00275$\pm$0.00001 \\
+ &SVM &0.6389&0.6389&0.00268 \\
+ \hline
+ \end{tabular}}
+ \end{table*}
+
+\noindent 正如表格~(\ref{tab:3})~中所示，在这五个数据集中的四个数据集上~(Boston，Communities，\\Airfoil~和~Abalone)，IB-RVFL在三个统计指标上的表现都比其它两种算法要好。特别地，对于数据集~Communities，虽然它的特征维度较高，但是~IB-RVFL~算法仍然表现出比其它两种算法更好的性能。对于数据集~Concrete，IB-RVFL~的表现与~RVFL~相当，比~B-RVFL~的结果稍微差了一些。另外，从表格~(\ref{tab:4})~中，我们注意到~IB-RVFL~的结果在所有数据集上的表现都比其它四种算法要好。即使对于数据量较大的数据集~delta-elv，性能也很好。
+
+我们进一步研究模型中参数~$m$~的作用~(它表示基函数的数目)，探究不同数目的基函数对模型性能的影响，以及模型需要的基函数的数目。令~$m=\{2,5,10,20,30\}$，在数据集~ele-1~上进行实验，得到训练数据和测试数据在不同~$m$~取值下模型的误差曲线，结果展示在图~(\ref{fig:1})~中。注意训练误差并没有随着~$m$~ 的增长而持续减少，训练误差和测试误差的最小值都在~$m=5$~时取得。我们推测它揭示了贝叶斯模型具有抑制过拟合的能力。事实上，当我们在结合权重~$\boldsymbol{\beta}$~上定义高斯先验分布时，等价于对损失函数添加了~$\ell_{2}$~正则项。同时，由于贝叶斯模型的独特性，我们不需要对~$m$~进行交叉验证来确定它的值，我们可以直接从训练数据集的表现中得出~$m$~的最佳取值。对于相同的性能，我们倾向于选择较小的~$m$~值，因为~$m$~的值越大，意味着我们需要消耗更多的计算资源。在本文中的大部分实验中，$m=5$~都是一个较好的选择。这也说明了~IB-RVFL~模型的优势，对于贝叶斯神经网络或贝叶斯随机向量泛函网络~(B-RVFL)，这些和本文类似的框架而言，它们都需要大量的隐藏单元来保证模型的学习能力，而~IB-RVFL~是更加灵活的和自适应的，它只需要少量的隐藏单元。同时，它摒弃了繁琐的交叉验证步骤，使学习更加简便。
+\begin{figure}[htbp]
+ \captionsetup{font={small}}
+ \caption{The MSE curve for ele-1 data set with different $m$ value}\label{fig:1}
+ \centering
+ \includegraphics[width=6.5cm,height=4.5cm]{m.jpg}
+ \end{figure}
+
+接下来，我们研究参数~$\mathbf{A}$~和~$b$~在迭代过程中的变化。在数据集~ele-1~上观测它们在训练过程中的变化曲线，如图~(\ref{fig:2})~所示。因为参数~$\mathbf{A}$~和~$b$~都是随机变量，我们用经验均值作为观测指标。在训练过程中每经过~1000~次迭代，从中抽取~$5000$~个样本，计算它们的均值作为参数~$\mathbf{A}$~和~$b$~的观测值。对于参数~$\mathbf{A}$，我们从两个维度进行研究，包括不同节点的同一特征的变化曲线及同一节点不同特征的变化曲线。参数~ $\mathbf{A}$~和~$b$~的初始值都是随机且独立的从均值为~$0$，方差为~$1$~的标准正态分布中抽取的。后验分布的均值在迭代过程中不断被修正直至收敛。图~(\ref{fig:3})~展示了参数~$\mathbf{A}$~和~$b$~在收敛后的分布曲线。我们发现它们的方差和预想中的一样，值较小。较小的方差会使预测分布更加鲁棒。对于不同的~$\{A_{ij}\}$，它们的后验分布是不同的，正是因为~$\boldsymbol{A}$~中的每个元素都服从不同的分布，才使得模型具有强大的学习能力。同时，我们也只需要少量的基函数便能得到好的结果。
+
+ \begin{figure*}[htbp]
+  \captionsetup{font={small}}
+ \caption{The changes of $A$ and $b$ for ele-1 data set through the iterative process}\label{fig:2}
+ \centering
+ \subfigure[The change of $A$]{\includegraphics[width=5cm,height=4cm]{A_feature.jpg}}
+ \subfigure[The change of $A$]{\includegraphics[width=5cm,height=4cm]{A_node.jpg}}
+ \subfigure[The change of $b$]{\includegraphics[width=5cm,height=4cm]{b.jpg}}
+ \end{figure*}
+
+  \begin{figure*}[htbp]
+ \captionsetup{font={small}}
+ \caption{The posterior distributions of $A$ and $b$ for ele-1 data set}\label{fig:3}
+ \centering
+ \small
+ \includegraphics[width=10cm,height=5cm]{oo.jpg}
+ \end{figure*}
+
+最后，我们在数据集~ele-1~上绘制模型的证据下界~(ELBO)~迭代曲线，如图~(\ref{fig:4})~所示。从图形中可以看出，ELBO~曲线在大概~40,000~次迭代后收敛了，这是因为~VI~算法在近似后验分布时需要多次迭代，同时，本文模型中后验分布的形式较为复杂，这也导致了较多的迭代次数。幸运的是，这些迭代并不十分耗时。事实上，算法在全部数据集上的平均运行时间在~1.5~分钟左右。因此，它揭示了~VI~算法是一个解决复杂概率模型问题的强有力工具。本文的实验均是在~CPU~为~2.50GHZ，RAM~为~8GB~的电脑上运行的，相关编程软件使用的是~Python~3.6.1。
+\begin{figure}[htbp]
+ \captionsetup{font={small}}
+ \caption{The negative ELBO iterative curve for ele-1 data set}\label{fig:4}
+ \centering
+ \small
+ \includegraphics[width=6.5cm,height=4.5cm]{ele1.jpg}
+\end{figure}
+\section{小结}
+这篇论文提出了一个针对不确定数据建模，结合随机向量泛函网络的完全贝叶斯模型，即~IB-RVFL。和已有的工作~B-RVFL~相比，我们在基函数的参数上也定义了先验分布。通过在训练过程中引入额外的先验知识，不仅模型的学习能力得到提高，而且针对基本的~RVFL~模型中对随机参数确定问题的困难性和重要性，提供了一个有效的解决方案。和~B-RVFL~中，需要基函数的参数预先定义分布函数不同，我们通过变分推断技术可以实现超参数的自动推断。
+
+这项工作的主要技术贡献包括以下几方面：通过在迭代过程中对这些分布的均值和方差进行微调，我们得到了一个鲁棒的模型，对不同的数据集提供不同的学习能力，在现有基于~RVFL~的建模技术中，解决了基函数随机参数的设置难题。而且，IB-RVFL~模型进一步挖掘了~B-RVFL~ 模型的学习能力，充分发挥了贝叶斯的全部潜能。对于贝叶斯神经网络或贝叶斯随机向量泛函网络~(B-RVFL)，这些和本文类似的框架而言，它们都需要大量的隐藏单元来保证模型的学习能力，而~IB-RVFL~是更加灵活的和自适应的，它只需要少量的隐藏单元。同时，它摒弃了繁琐的交叉验证步骤，使学习更加简便。
+
+为了保证实验评估的公平性和准确性，我们通过三个统计指标在九个不同数据集上对这些算法进行了比较。在这些数据集上，IB-RVFL~算法与~RVFL，B-RVFL，RSCN，SVM~和~Random-Forest~相比，都表现良好。
+\chapter[总结与展望]{总结与展望}
+贝叶斯方法将不确定性引入模型中，并且将先验知识和观测数据结合，在机器学习领域备受欢迎。贝叶斯方法提供了一种计算假设概率的方法，这种方法是基于假设的先验概率、给定假设下观察到不同数据的概率以及观察到的数据本身而得出的。其方法为，将关于未知参数的先验信息与样本信息综合，再根据贝叶斯定理，得出后验信息，然后根据后验信息去推断未知参数的方法。基于贝叶斯理论针对鲁棒性数据建模的算法相应而生。本文提出的算法便是结合~RVFL~和贝叶斯理论的一个例子。贝叶斯方法有许多优点，特别是在建模过程中对各个层次的不确定性的统一处理。这种形式也允许先验知识与从观测数据中获得的知识的无缝结合。然而，优雅的形式背后往往有一个相当大的计算成本——由观测数据合并而来的后验分布必须被表示和更新，这通常涉及到高维积分。这些计算成本使得即使在简单的模型中，如广义线性模型，也会让人质疑贝叶斯方法的可行性。为了解决这个问题，我们采用针对贝叶斯方法的变分推断技术。变分推断方法通过寻找分布族中最接近后验分布的成员，使目标函数的求解变成了一个优化问题。变分推断在许多应用中比经典的抽样方法诸如~MCMC~更快。
+
+IB-RVFL~通过在迭代过程中对这些分布的均值和方差进行微调，得到了一个鲁棒的模型，对不同的数据集提供不同的学习能力，在现有基于~RVFL~的建模技术中，解决了基函数随机参数的设置难题。而且，IB-RVFL~模型进一步挖掘了~B-RVFL~ 模型的学习能力，充分发挥了贝叶斯的全部潜能。对于贝叶斯神经网络或贝叶斯随机向量函数型链接网络~(B-RVFL)，这些和本文类似的框架而言，它们都需要大量的隐藏单元来保证模型的学习能力，而~IB-RVFL~是更加灵活的和自适应的，它只需要少量的隐藏单元。同时，它摒弃了繁琐的交叉验证步骤，使学习更加简便。
+
+然而本文中模型的后验分布形式过于复杂，即使通过变分推断技术，应用在非常大的数据集上可能也有一定的困难。对于贝叶斯模型，相关的计算问题是它的一大瓶颈，更多的近似方法被提出来解决这一问题。从近似方法依赖于随机近似还是确定近似，方法大体分为随机近似方法和确定性近似方法两大类。后续的研究中，我们希望从算法层面对模型进行改进。
+
+\bibliography{ref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\pagestyle{fancy}
+\begin{center}
+\heiti\sanhao {致\quad 谢}
+\end{center}
+
+这篇论文的顺利完成，离不开师长和同学们对我的帮助，这里我将一一对此表示感谢。
+
+首先谢谢我的硕士研究生导师董雪梅老师在学术研究与日常生活上对我的指导与帮助。董老师是我非常尊敬的老师，在她身上充分体现了“师者，传道受业解惑者也”这一句话。董老师治学态度严谨，工作认真负责，对学生又和蔼可亲。在硕士求学期间，她让我们把心思完全的放在学业上，不去理会外界的干扰，只有认真准备好了的人，才能够在机遇来临时受到幸运的垂青。从她身上学到的这些精神，我想会对我往后的人生都有所裨益。
+
+再要感谢讨论班的明瑞星老师，王瑞刚老师，他们在我上讨论班期间，都提出了很多深刻的见解和意见，对我的学业进步帮助很大。尤其是明瑞星老师，他的很多观点都让我受益匪浅，他对人生，对知识的求真态度都让我很敬佩，这也是值得我学习的地方。
+
+还要感谢讨论班与我一起并肩作战的所有同学们，没有他们，我也不可能坚持下去。尤其感谢操玉琴同学，我们经常在一起讨论学术问题，这也让我学到了很多。还有我的室友，她们在生活和学习上对我的陪伴，也让我的整个研究生生涯分外温暖。
+
+最后感谢我的父母和好友，他们让我的人生更加完美。
+
+\addcontentsline{toc}{chapter}{致谢}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\begin{center}\heiti\sanhao\textbf{独\ 创\ 性\ 声\ 明}\end{center}
+\begin{spacing}{2.0}
+本人声明所呈交的学位论文是本人在导师指导下进行的研究工作及取得的研究成果。尽我所知，除了文中特别加以标注和致谢的地方外，论文中不包含其他人已经发表或撰写过的研究成果，也不包含本人为获得浙江工商大学或其它教育机构的学位或证书而使用过的材料。与我一同工作的同志对本研究所做的任何贡献均已在论文中作了明确的说明并表示谢意。\\
+
+~~~~~~~~~~~~~~~~~~签名：\underline{\hspace{3cm}}\ \ 日期：\quad\quad 年\quad\quad 月\quad\quad 日\\
+\\
+
+\begin{center}\heiti\sanhao\textbf{ 关于论文使用授权的说明}\end{center}
+~~~~~~本学位论文作者完全了解浙江工商大学有关保留、使用学位论文的规定：浙江工商大学有权保留并向国家有关部门或机构送交论文的复印件和磁盘，允许论文被查阅和借阅，可以将学位论文的全部或部分内容编入有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文，并且本人电子文档的内容和纸质论文的内容相一致。
+
+保密的学位论文在解密后也遵守此规定。\\
+
+~~~~~~~~~~~~~~~~~~签名：\underline{\hspace{3cm}}\ \ 导师签名：\underline{\hspace{3cm}}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 日期：\quad\quad 年\quad\quad 月\quad\quad日
+\end{spacing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+
+
+
+
+
